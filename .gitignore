@@ -1,1 +1,3 @@
 .secrets
+*.xcuserstate
+*.xcuserdatad
