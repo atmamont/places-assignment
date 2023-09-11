@@ -12,13 +12,14 @@ You can choose whichever technology you're most comfortable with for the impleme
 
 We'll check your implementation to understand mobile platform specifics, correct UX choices, overall architecture design, and code quality. 
 
-Foursquare API [https://developer.foursquare.com/reference/place-search](https://developer.foursquare.com/reference/place-search) 
+[Foursquare API ](https://developer.foursquare.com/reference/place-search) 
 
 Feel free to reach out if anything needs to be clarified. Please try to finish the assignment in one week. 
 
 As we're grading this assignment to a mid/sr. level, please bear in mind these requirements: 
 
-meets minimum UI/UX requirements
-permission handling
-Testable architecture
+- meets minimum UI/UX requirements
+- permission handling
+- Testable architecture  
+
 In Adyen, we value quality over quantity. Try to avoid over-complicating your assignment, and aim for a straightforward solution. Good luck, and have a great day!
