@@ -53,22 +53,32 @@ private extension Array where Element == RemotePlaceItem {
 
 final class RemotePlacesLoaderTests: XCTestCase {
     func test_init_doesNotPerformRequest() {
-        let client = APIClientSpy()
-        let _ = RemotePlacesLoader(apiClient: client)
+        let (_, client) = makeSUT()
         
         XCTAssertEqual(client.performCallCount, 0, "Expected to not perform network request on init")
     }
     
     func test_load_performsRequest() {
-        let client = APIClientSpy()
-        let sut = RemotePlacesLoader(apiClient: client)
-        
+        let (sut, client) = makeSUT()
+
         sut.load { _ in
         }
         
         XCTAssertEqual(client.performCallCount, 1, "Expected to perform request on load call")
     }
     
+    // MARK: - Helpers
+    
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RemotePlacesLoader, client: APIClientSpy) {
+        let client = APIClientSpy()
+        let sut = RemotePlacesLoader(apiClient: client)
+        
+        trackForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(client, file: file, line: line)
+        
+        return (sut: sut, client: client)
+
+    }
 
     private class APIClientSpy: APIClientProtocol {
         var performCallCount = 0
