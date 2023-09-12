@@ -55,30 +55,29 @@ final class RemotePlacesLoaderTests: XCTestCase {
     func test_init_doesNotPerformRequest() {
         let (_, client) = makeSUT()
         
-        XCTAssertEqual(client.performCallCount, 0, "Expected to not perform network request on init")
+        XCTAssertEqual(client.requestedPaths, [], "Expected to not perform network request on init")
     }
     
     func test_load_performsRequest() {
         let (sut, client) = makeSUT()
 
-        sut.load { _ in
-        }
+        sut.load { _ in }
         
-        XCTAssertEqual(client.performCallCount, 1, "Expected to perform request on load call")
+        XCTAssertEqual(client.requestedPaths, [placesRequestPath], "Expected to perform request on load call")
     }
     
     func test_loadTwice_requestsDataFromURLTwice() {
         let (sut, client) = makeSUT()
 
-        let path = "places/search"
-
         sut.load { _ in }
         sut.load { _ in }
 
-        XCTAssertEqual(client.requestedPaths, [url, url])
+        XCTAssertEqual(client.requestedPaths, [placesRequestPath, placesRequestPath])
     }
     
     // MARK: - Helpers
+    
+    private let placesRequestPath = "places/search"
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RemotePlacesLoader, client: APIClientSpy) {
         let client = APIClientSpy()
@@ -92,13 +91,10 @@ final class RemotePlacesLoaderTests: XCTestCase {
     }
 
     private class APIClientSpy: APIClientProtocol {
-        var performCallCount = 0
         var requestedPaths = [String]()
         
         func perform<R: Request>(_ request: R, completionHandler: @escaping CompletionHandler<R.ResponseType>) {
             requestedPaths.append(request.path)
-            performCallCount += 1
         }
     }
-
 }
