@@ -6,6 +6,6 @@
 
 import Foundation
 
-internal struct APIPlaceItem: Decodable {
+internal struct RemotePlaceItem: Decodable {
 
 }

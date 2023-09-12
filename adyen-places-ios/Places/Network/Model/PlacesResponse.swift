@@ -8,6 +8,6 @@ import AdyenNetworking
 
 internal struct PlacesResponse: Response {
     
-    internal let results: [APIPlaceItem]
+    internal let results: [RemotePlaceItem]
     
 }

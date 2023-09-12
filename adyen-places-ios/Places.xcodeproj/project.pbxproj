@@ -15,10 +15,12 @@
 		5AC5AD152A0278F000C59D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD132A0278F000C59D84 /* LaunchScreen.storyboard */; };
 		7525C4C22AB07012003D55F3 /* Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7525C4B82AB07012003D55F3 /* Places.framework */; };
 		7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B529DC817600981DC7 /* PlacesAPIContext.swift */; };
-		7525C4D72AB070A0003D55F3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* Place.swift */; };
+		7525C4D72AB070A0003D55F3 /* RemotePlaceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* RemotePlaceItem.swift */; };
 		7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B829DC817600981DC7 /* PlacesResponse.swift */; };
 		7525C4D92AB070A8003D55F3 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */; };
 		7525C4DB2AB070FB003D55F3 /* AdyenNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 7525C4DA2AB070FB003D55F3 /* AdyenNetworking */; };
+		7525C4E42AB07627003D55F3 /* PlacesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4E32AB07627003D55F3 /* PlacesLoader.swift */; };
+		7525C4E72AB076C7003D55F3 /* RemotePlacesLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -46,7 +48,7 @@
 		7525C4C12AB07012003D55F3 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlacesTests.xctestplan; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
-		B13196B729DC817600981DC7 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
 		B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
 		B15C5DC129D61A9300A816C4 /* PlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,7 +132,7 @@
 		B13196B629DC817600981DC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B13196B729DC817600981DC7 /* Place.swift */,
+				B13196B729DC817600981DC7 /* RemotePlaceItem.swift */,
 				B13196B829DC817600981DC7 /* PlacesResponse.swift */,
 			);
 			path = Model;
@@ -372,7 +374,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7525C4D72AB070A0003D55F3 /* Place.swift in Sources */,
+				7525C4D72AB070A0003D55F3 /* RemotePlaceItem.swift in Sources */,
 				7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */,
 				7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */,
 				7525C4D92AB070A8003D55F3 /* SearchPlacesRequest.swift in Sources */,
