@@ -75,3 +75,6 @@ Then the updated map with new found places is dispalyed
 
 ![Diagram](PlacesDependencyChart.drawio.png)
 
+# Potential improvements
+1. Testing network for more cases using `URLProtocol`. Ideally this should be a part of `AdyenNetworking` framework and this also could be a way to document its behaviors.
+2. Better network errors handling. `EmptyErrorResponse` for `SearchPlacesRequest` doesn't provide a lot of context and `AdyenNetworking` neither. The next step to improve would be defining minimum set of distinguished user errors, checking what kind of errors we receive in real scenario and then adjusting the `handle(:)` method in `RemotePlacesLoader`
