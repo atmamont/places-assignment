@@ -63,3 +63,11 @@ Then the updated map with new found places is dispalyed
 
 ### Sad path (server error, invalid data):
 1. System delivers error
+
+## UX overview
+1. User opens the app that shows "Places" screen right away
+2. Places screen has two sections: 
+    - a control for adjusting radius (UISlider presumably)
+    - a full-screen map (MapKit)
+3. The app shows the map 
+
