@@ -30,6 +30,7 @@ class RemotePlacesLoader {
             }
         }
     }
+    
     private func handle(_ error: Swift.Error) -> Error {
         // please read the potential improvements section in README.md
         return error
@@ -42,7 +43,6 @@ class RemotePlacesLoader {
     private struct Root: Decodable {
         let results: [RemotePlaceItem]
     }
-
 }
 
 private extension Array where Element == RemotePlaceItem {
@@ -121,6 +121,20 @@ final class RemotePlacesLoaderTests: XCTestCase {
         
         wait(for: [exp], timeout: 1.0)
     }
+    
+    func test_load_doesNotDeliverResultAfterSUTWasDeallocated() {
+        let client = APIClientSpy()
+        var weakSut: RemotePlacesLoader? = RemotePlacesLoader(apiClient: client)
+
+        var capturedResults = [RemotePlacesLoader.LoadResult]()
+        weakSut?.load { capturedResults.append($0) }
+        
+        weakSut = nil
+        client.completeWithPlaces(makePlaces())
+        
+        XCTAssertEqual(capturedResults.count, 0)
+    }
+    
     // MARK: - Helpers
     
     private let placesRequestPath = "places/search"
@@ -169,3 +183,4 @@ final class RemotePlacesLoaderTests: XCTestCase {
         }
     }
 }
+
