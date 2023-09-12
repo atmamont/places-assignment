@@ -83,43 +83,21 @@ final class RemotePlacesLoaderTests: XCTestCase {
     
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
-        let exp = expectation(description: "Wait for load completion")
         let expectedError = NSError(domain: "any", code: 1)
-
-        sut.load { result in
-            switch result {
-            case .success:
-                XCTFail("Expected to receive client error")
-            case .failure(let receivedError):
-                XCTAssertEqual(expectedError, receivedError as NSError, "Expected error \(expectedError) doesn't match received error \(receivedError)")
-            }
-            exp.fulfill()
-        }
         
-        client.completeWithError(expectedError)
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toCompleteWith: .failure(expectedError), when: {
+            client.completeWithError(expectedError)
+        })
     }
     
     func test_load_deliversPlacesOnSuccess() {
         let (sut, client) = makeSUT()
-        let exp = expectation(description: "Wait for load completion")
         let expectedPlaces = makePlaces()
         let expectedMappedPlaces = expectedPlaces.toModels()
         
-        sut.load { result in
-            switch result {
-            case let .success(receivedPlaces):
-                XCTAssertEqual(expectedMappedPlaces, receivedPlaces, "Expected to receive \(expectedMappedPlaces), instead got \(receivedPlaces)")
-            case .failure:
-                XCTFail("Expected to not receive any error")
-            }
-            exp.fulfill()
-        }
-        
-        client.completeWithPlaces(expectedPlaces)
-        
-        wait(for: [exp], timeout: 1.0)
+        expect(sut, toCompleteWith: .success(expectedMappedPlaces), when: {
+            client.completeWithPlaces(expectedPlaces)
+        })
     }
     
     func test_load_doesNotDeliverResultAfterSUTWasDeallocated() {
@@ -149,6 +127,29 @@ final class RemotePlacesLoaderTests: XCTestCase {
         return (sut: sut, client: client)
     }
     
+    private func expect(_ sut: RemotePlacesLoader, toCompleteWith expectedResult: RemotePlacesLoader.LoadResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+        let exp = expectation(description: "Wait for load completion")
+        
+        sut.load { receivedResult in
+            switch (receivedResult, expectedResult) {
+            case let (.success(receivedPlaces), .success(expectedPlaces)):
+                XCTAssertEqual(receivedPlaces, expectedPlaces, file: file, line: line)
+                
+            case let (.failure(receivedError as NSError), .failure(expectedError as NSError)):
+                XCTAssertEqual(receivedError, expectedError, file: file, line: line)
+                
+            default:
+                XCTFail("Expected result \(expectedResult) got \(receivedResult) instead", file: file, line: line)
+            }
+            
+            exp.fulfill()
+        }
+        
+        action()
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+
     private func makePlaces() -> [RemotePlaceItem] {
         let place1 = RemotePlaceItem(
             name: "Place 1",
