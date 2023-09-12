@@ -67,6 +67,17 @@ final class RemotePlacesLoaderTests: XCTestCase {
         XCTAssertEqual(client.performCallCount, 1, "Expected to perform request on load call")
     }
     
+    func test_loadTwice_requestsDataFromURLTwice() {
+        let (sut, client) = makeSUT()
+
+        let path = "places/search"
+
+        sut.load { _ in }
+        sut.load { _ in }
+
+        XCTAssertEqual(client.requestedPaths, [url, url])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RemotePlacesLoader, client: APIClientSpy) {
