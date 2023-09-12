@@ -76,6 +76,26 @@ final class RemotePlacesLoaderTests: XCTestCase {
         XCTAssertEqual(client.requestedPaths, [placesRequestPath, placesRequestPath])
     }
     
+    func test_load_deliversErrorOnClientError() {
+        let (sut, client) = makeSUT()
+        let exp = expectation(description: "Wait for load completion")
+        let expectedError = NSError(domain: "any", code: 1)
+
+        sut.load { result in
+            switch result {
+            case .success:
+                XCTFail("Expected to receive client error")
+            case .failure(let receivedError):
+                XCTAssertEqual(expectedError, receivedError as NSError, "Expected error \(expectedError) doesn't match received error \(receivedError)")
+            }
+            exp.fulfill()
+        }
+        
+        client.completeWithError(expectedError)
+        
+        wait(for: [exp], timeout: 1.0)
+    }
+    
     // MARK: - Helpers
     
     private let placesRequestPath = "places/search"
@@ -88,14 +108,21 @@ final class RemotePlacesLoaderTests: XCTestCase {
         trackForMemoryLeaks(client, file: file, line: line)
         
         return (sut: sut, client: client)
-
     }
 
     private class APIClientSpy: APIClientProtocol {
+        typealias T = SearchPlacesRequest.ResponseType
+        
         var requestedPaths = [String]()
+        var completions: [CompletionHandler<T>] = []
         
         func perform<R: Request>(_ request: R, completionHandler: @escaping CompletionHandler<R.ResponseType>) {
             requestedPaths.append(request.path)
+            completions.append(completionHandler as! CompletionHandler<T>)
+        }
+        
+        func completeWithError(_ error: Error, at index: Int = 0) {
+            completions[index](.failure(error))
         }
     }
 }
