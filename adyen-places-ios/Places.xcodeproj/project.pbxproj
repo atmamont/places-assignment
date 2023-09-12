@@ -13,38 +13,23 @@
 		5AC5AD102A0278EF00C59D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD0E2A0278EF00C59D84 /* Main.storyboard */; };
 		5AC5AD122A0278F000C59D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD112A0278F000C59D84 /* Assets.xcassets */; };
 		5AC5AD152A0278F000C59D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD132A0278F000C59D84 /* LaunchScreen.storyboard */; };
-		5AC5AD1B2A02792100C59D84 /* PlacesAPIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B529DC817600981DC7 /* PlacesAPIContext.swift */; };
-		5AC5AD1C2A02792700C59D84 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* Place.swift */; };
-		5AC5AD1D2A02792700C59D84 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B829DC817600981DC7 /* PlacesResponse.swift */; };
-		5AC5AD1E2A02792A00C59D84 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */; };
-		B13196BB29DC817600981DC7 /* PlacesAPIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B529DC817600981DC7 /* PlacesAPIContext.swift */; };
-		B13196BC29DC817600981DC7 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* Place.swift */; };
-		B13196BD29DC817600981DC7 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B829DC817600981DC7 /* PlacesResponse.swift */; };
-		B13196BE29DC817600981DC7 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */; };
-		B15C5DAB29D61A9200A816C4 /* PlacesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DAA29D61A9200A816C4 /* PlacesApp.swift */; };
-		B15C5DAF29D61A9300A816C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15C5DAE29D61A9300A816C4 /* Assets.xcassets */; };
-		B15C5DB229D61A9300A816C4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B15C5DB129D61A9300A816C4 /* Preview Assets.xcassets */; };
-		B15C5DBC29D61A9300A816C4 /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DBB29D61A9300A816C4 /* PlacesTests.swift */; };
+		7525C4C22AB07012003D55F3 /* Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7525C4B82AB07012003D55F3 /* Places.framework */; };
+		7525C4C92AB07012003D55F3 /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4C82AB07012003D55F3 /* PlacesTests.swift */; };
+		7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B529DC817600981DC7 /* PlacesAPIContext.swift */; };
+		7525C4D72AB070A0003D55F3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* Place.swift */; };
+		7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B829DC817600981DC7 /* PlacesResponse.swift */; };
+		7525C4D92AB070A8003D55F3 /* SearchPlacesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */; };
+		7525C4DB2AB070FB003D55F3 /* AdyenNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 7525C4DA2AB070FB003D55F3 /* AdyenNetworking */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
-		B15C5DD629D61AC000A816C4 /* AdyenNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = B15C5DD529D61AC000A816C4 /* AdyenNetworking */; };
-		B15C5DD929D61B3300A816C4 /* PlaceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DD829D61B3300A816C4 /* PlaceListView.swift */; };
-		B19F1F092A02AE6300BAAF00 /* AdyenNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = B19F1F082A02AE6300BAAF00 /* AdyenNetworking */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B15C5DB829D61A9300A816C4 /* PBXContainerItemProxy */ = {
+		7525C4C32AB07012003D55F3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B15C5D9F29D61A9200A816C4 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B15C5DA629D61A9200A816C4;
-			remoteInfo = Places;
-		};
-		B15C5DC229D61A9300A816C4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B15C5D9F29D61A9200A816C4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B15C5DA629D61A9200A816C4;
+			remoteGlobalIDString = 7525C4B72AB07012003D55F3;
 			remoteInfo = Places;
 		};
 /* End PBXContainerItemProxy section */
@@ -58,16 +43,17 @@
 		5AC5AD112A0278F000C59D84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AC5AD142A0278F000C59D84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AC5AD162A0278F000C59D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7525C4B82AB07012003D55F3 /* Places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7525C4C12AB07012003D55F3 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7525C4C82AB07012003D55F3 /* PlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTests.swift; sourceTree = "<group>"; };
+		7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlacesTests.xctestplan; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
 		B13196BA29DC817600981DC7 /* SearchPlacesRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPlacesRequest.swift; sourceTree = "<group>"; };
-		B15C5DA729D61A9200A816C4 /* PlacesSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlacesSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15C5DAA29D61A9200A816C4 /* PlacesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesApp.swift; sourceTree = "<group>"; };
 		B15C5DAE29D61A9300A816C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B15C5DB129D61A9300A816C4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		B15C5DB729D61A9300A816C4 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B15C5DBB29D61A9300A816C4 /* PlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTests.swift; sourceTree = "<group>"; };
 		B15C5DC129D61A9300A816C4 /* PlacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesUITests.swift; sourceTree = "<group>"; };
 		B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -79,22 +65,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B19F1F092A02AE6300BAAF00 /* AdyenNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DA429D61A9200A816C4 /* Frameworks */ = {
+		7525C4B52AB07012003D55F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B15C5DD629D61AC000A816C4 /* AdyenNetworking in Frameworks */,
+				7525C4DB2AB070FB003D55F3 /* AdyenNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DB429D61A9300A816C4 /* Frameworks */ = {
+		7525C4BE2AB07012003D55F3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7525C4C22AB07012003D55F3 /* Places.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,12 +108,20 @@
 			path = PlacesUIKit;
 			sourceTree = "<group>";
 		};
-		5AC5AD1A2A02790B00C59D84 /* Shared */ = {
+		7525C4B92AB07012003D55F3 /* Places */ = {
 			isa = PBXGroup;
 			children = (
 				B13196B429DC817600981DC7 /* Network */,
 			);
-			path = Shared;
+			path = Places;
+			sourceTree = "<group>";
+		};
+		7525C4C72AB07012003D55F3 /* PlacesTests */ = {
+			isa = PBXGroup;
+			children = (
+				7525C4C82AB07012003D55F3 /* PlacesTests.swift */,
+			);
+			path = PlacesTests;
 			sourceTree = "<group>";
 		};
 		B13196B429DC817600981DC7 /* Network */ = {
@@ -160,10 +154,11 @@
 		B15C5D9E29D61A9200A816C4 = {
 			isa = PBXGroup;
 			children = (
+				7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */,
 				B15C5DA929D61A9200A816C4 /* PlacesSwiftUI */,
 				5AC5AD072A0278EF00C59D84 /* PlacesUIKit */,
-				5AC5AD1A2A02790B00C59D84 /* Shared */,
-				B15C5DBA29D61A9300A816C4 /* PlacesTests */,
+				7525C4B92AB07012003D55F3 /* Places */,
+				7525C4C72AB07012003D55F3 /* PlacesTests */,
 				B15C5DC429D61A9300A816C4 /* PlacesUITests */,
 				B15C5DA829D61A9200A816C4 /* Products */,
 				B19F1F072A02AE6300BAAF00 /* Frameworks */,
@@ -173,10 +168,10 @@
 		B15C5DA829D61A9200A816C4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B15C5DA729D61A9200A816C4 /* PlacesSwiftUI.app */,
-				B15C5DB729D61A9300A816C4 /* PlacesTests.xctest */,
 				B15C5DC129D61A9300A816C4 /* PlacesUITests.xctest */,
 				5AC5AD062A0278EF00C59D84 /* PlacesUIKit.app */,
+				7525C4B82AB07012003D55F3 /* Places.framework */,
+				7525C4C12AB07012003D55F3 /* PlacesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,14 +193,6 @@
 				B15C5DB129D61A9300A816C4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		B15C5DBA29D61A9300A816C4 /* PlacesTests */ = {
-			isa = PBXGroup;
-			children = (
-				B15C5DBB29D61A9300A816C4 /* PlacesTests.swift */,
-			);
-			path = PlacesTests;
 			sourceTree = "<group>";
 		};
 		B15C5DC429D61A9300A816C4 /* PlacesUITests */ = {
@@ -234,6 +221,16 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		7525C4B32AB07012003D55F3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		5AC5AD052A0278EF00C59D84 /* PlacesUIKit */ = {
 			isa = PBXNativeTarget;
@@ -249,48 +246,48 @@
 			);
 			name = PlacesUIKit;
 			packageProductDependencies = (
-				B19F1F082A02AE6300BAAF00 /* AdyenNetworking */,
 			);
 			productName = PlacesUIKit;
 			productReference = 5AC5AD062A0278EF00C59D84 /* PlacesUIKit.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B15C5DA629D61A9200A816C4 /* PlacesSwiftUI */ = {
+		7525C4B72AB07012003D55F3 /* Places */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B15C5DCB29D61A9300A816C4 /* Build configuration list for PBXNativeTarget "PlacesSwiftUI" */;
+			buildConfigurationList = 7525C4D42AB07012003D55F3 /* Build configuration list for PBXNativeTarget "Places" */;
 			buildPhases = (
-				B15C5DA329D61A9200A816C4 /* Sources */,
-				B15C5DA429D61A9200A816C4 /* Frameworks */,
-				B15C5DA529D61A9200A816C4 /* Resources */,
+				7525C4B32AB07012003D55F3 /* Headers */,
+				7525C4B42AB07012003D55F3 /* Sources */,
+				7525C4B52AB07012003D55F3 /* Frameworks */,
+				7525C4B62AB07012003D55F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = PlacesSwiftUI;
+			name = Places;
 			packageProductDependencies = (
-				B15C5DD529D61AC000A816C4 /* AdyenNetworking */,
+				7525C4DA2AB070FB003D55F3 /* AdyenNetworking */,
 			);
 			productName = Places;
-			productReference = B15C5DA729D61A9200A816C4 /* PlacesSwiftUI.app */;
-			productType = "com.apple.product-type.application";
+			productReference = 7525C4B82AB07012003D55F3 /* Places.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		B15C5DB629D61A9300A816C4 /* PlacesTests */ = {
+		7525C4C02AB07012003D55F3 /* PlacesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B15C5DCE29D61A9300A816C4 /* Build configuration list for PBXNativeTarget "PlacesTests" */;
+			buildConfigurationList = 7525C4D52AB07012003D55F3 /* Build configuration list for PBXNativeTarget "PlacesTests" */;
 			buildPhases = (
-				B15C5DB329D61A9300A816C4 /* Sources */,
-				B15C5DB429D61A9300A816C4 /* Frameworks */,
-				B15C5DB529D61A9300A816C4 /* Resources */,
+				7525C4BD2AB07012003D55F3 /* Sources */,
+				7525C4BE2AB07012003D55F3 /* Frameworks */,
+				7525C4BF2AB07012003D55F3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B15C5DB929D61A9300A816C4 /* PBXTargetDependency */,
+				7525C4C42AB07012003D55F3 /* PBXTargetDependency */,
 			);
 			name = PlacesTests;
 			productName = PlacesTests;
-			productReference = B15C5DB729D61A9300A816C4 /* PlacesTests.xctest */;
+			productReference = 7525C4C12AB07012003D55F3 /* PlacesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		B15C5DC029D61A9300A816C4 /* PlacesUITests */ = {
@@ -304,7 +301,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				B15C5DC329D61A9300A816C4 /* PBXTargetDependency */,
 			);
 			name = PlacesUITests;
 			productName = PlacesUITests;
@@ -324,11 +320,11 @@
 					5AC5AD052A0278EF00C59D84 = {
 						CreatedOnToolsVersion = 14.3;
 					};
-					B15C5DA629D61A9200A816C4 = {
-						CreatedOnToolsVersion = 14.2;
+					7525C4B72AB07012003D55F3 = {
+						CreatedOnToolsVersion = 14.3.1;
 					};
-					B15C5DB629D61A9300A816C4 = {
-						CreatedOnToolsVersion = 14.2;
+					7525C4C02AB07012003D55F3 = {
+						CreatedOnToolsVersion = 14.3.1;
 						TestTargetID = B15C5DA629D61A9200A816C4;
 					};
 					B15C5DC029D61A9300A816C4 = {
@@ -353,9 +349,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B15C5DA629D61A9200A816C4 /* PlacesSwiftUI */,
+				7525C4B72AB07012003D55F3 /* Places */,
+				7525C4C02AB07012003D55F3 /* PlacesTests */,
 				5AC5AD052A0278EF00C59D84 /* PlacesUIKit */,
-				B15C5DB629D61A9300A816C4 /* PlacesTests */,
 				B15C5DC029D61A9300A816C4 /* PlacesUITests */,
 			);
 		};
@@ -372,16 +368,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DA529D61A9200A816C4 /* Resources */ = {
+		7525C4B62AB07012003D55F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B15C5DB229D61A9300A816C4 /* Preview Assets.xcassets in Resources */,
-				B15C5DAF29D61A9300A816C4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DB529D61A9300A816C4 /* Resources */ = {
+		7525C4BF2AB07012003D55F3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -402,34 +396,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AC5AD1D2A02792700C59D84 /* PlacesResponse.swift in Sources */,
-				5AC5AD1E2A02792A00C59D84 /* SearchPlacesRequest.swift in Sources */,
-				5AC5AD1B2A02792100C59D84 /* PlacesAPIContext.swift in Sources */,
 				5AC5AD0D2A0278EF00C59D84 /* ViewController.swift in Sources */,
 				5AC5AD092A0278EF00C59D84 /* AppDelegate.swift in Sources */,
 				5AC5AD0B2A0278EF00C59D84 /* SceneDelegate.swift in Sources */,
-				5AC5AD1C2A02792700C59D84 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DA329D61A9200A816C4 /* Sources */ = {
+		7525C4B42AB07012003D55F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B15C5DD929D61B3300A816C4 /* PlaceListView.swift in Sources */,
-				B13196BD29DC817600981DC7 /* PlacesResponse.swift in Sources */,
-				B15C5DAB29D61A9200A816C4 /* PlacesApp.swift in Sources */,
-				B13196BB29DC817600981DC7 /* PlacesAPIContext.swift in Sources */,
-				B13196BC29DC817600981DC7 /* Place.swift in Sources */,
-				B13196BE29DC817600981DC7 /* SearchPlacesRequest.swift in Sources */,
+				7525C4D72AB070A0003D55F3 /* Place.swift in Sources */,
+				7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */,
+				7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */,
+				7525C4D92AB070A8003D55F3 /* SearchPlacesRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B15C5DB329D61A9300A816C4 /* Sources */ = {
+		7525C4BD2AB07012003D55F3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B15C5DBC29D61A9300A816C4 /* PlacesTests.swift in Sources */,
+				7525C4C92AB07012003D55F3 /* PlacesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,15 +433,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		B15C5DB929D61A9300A816C4 /* PBXTargetDependency */ = {
+		7525C4C42AB07012003D55F3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B15C5DA629D61A9200A816C4 /* PlacesSwiftUI */;
-			targetProxy = B15C5DB829D61A9300A816C4 /* PBXContainerItemProxy */;
-		};
-		B15C5DC329D61A9300A816C4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B15C5DA629D61A9200A816C4 /* PlacesSwiftUI */;
-			targetProxy = B15C5DC229D61A9300A816C4 /* PBXContainerItemProxy */;
+			target = 7525C4B72AB07012003D55F3 /* Places */;
+			targetProxy = 7525C4C32AB07012003D55F3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -484,7 +467,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2NYSS5932;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlacesUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -513,7 +496,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = B2NYSS5932;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = PlacesUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -530,6 +513,108 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.PlacesUIKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7525C4D02AB07012003D55F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrii-mamchenko.adyen-assignment.Places";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7525C4D12AB07012003D55F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrii-mamchenko.adyen-assignment.Places";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7525C4D22AB07012003D55F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4TDY757HQH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrii-mamchenko.adyen-assignment.PlacesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7525C4D32AB07012003D55F3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4TDY757HQH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.andrii-mamchenko.adyen-assignment.PlacesTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -649,104 +734,6 @@
 			};
 			name = Release;
 		};
-		B15C5DCC29D61A9300A816C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALTERNATE_OWNER = adyen;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PlacesSwiftUI/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INSTALL_OWNER = adyen;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.PlacesUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		B15C5DCD29D61A9300A816C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALTERNATE_OWNER = adyen;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"PlacesSwiftUI/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INSTALL_OWNER = adyen;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.PlacesUI;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		B15C5DCF29D61A9300A816C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.PlacesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Places.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Places";
-			};
-			name = Debug;
-		};
-		B15C5DD029D61A9300A816C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.adyen.PlacesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Places.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Places";
-			};
-			name = Release;
-		};
 		B15C5DD229D61A9300A816C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -793,29 +780,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		7525C4D42AB07012003D55F3 /* Build configuration list for PBXNativeTarget "Places" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7525C4D02AB07012003D55F3 /* Debug */,
+				7525C4D12AB07012003D55F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7525C4D52AB07012003D55F3 /* Build configuration list for PBXNativeTarget "PlacesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7525C4D22AB07012003D55F3 /* Debug */,
+				7525C4D32AB07012003D55F3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B15C5DA229D61A9200A816C4 /* Build configuration list for PBXProject "Places" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B15C5DC929D61A9300A816C4 /* Debug */,
 				B15C5DCA29D61A9300A816C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B15C5DCB29D61A9300A816C4 /* Build configuration list for PBXNativeTarget "PlacesSwiftUI" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B15C5DCC29D61A9300A816C4 /* Debug */,
-				B15C5DCD29D61A9300A816C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B15C5DCE29D61A9300A816C4 /* Build configuration list for PBXNativeTarget "PlacesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B15C5DCF29D61A9300A816C4 /* Debug */,
-				B15C5DD029D61A9300A816C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -843,12 +830,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		B15C5DD529D61AC000A816C4 /* AdyenNetworking */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = B15C5DD429D61AC000A816C4 /* XCRemoteSwiftPackageReference "adyen-networking-ios" */;
-			productName = AdyenNetworking;
-		};
-		B19F1F082A02AE6300BAAF00 /* AdyenNetworking */ = {
+		7525C4DA2AB070FB003D55F3 /* AdyenNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B15C5DD429D61AC000A816C4 /* XCRemoteSwiftPackageReference "adyen-networking-ios" */;
 			productName = AdyenNetworking;

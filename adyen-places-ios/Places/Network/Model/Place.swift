@@ -6,6 +6,6 @@
 
 import Foundation
 
-internal struct Place: Decodable {
+internal struct APIPlaceItem: Decodable {
 
 }
