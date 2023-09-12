@@ -71,3 +71,7 @@ Then the updated map with new found places is dispalyed
     - a full-screen map (MapKit)
 3. The app shows the map 
 
+# Dependency diagram
+
+![Diagram](PlacesDependencyChart.drawio.png)
+
