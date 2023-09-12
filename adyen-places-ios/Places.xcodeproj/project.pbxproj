@@ -22,6 +22,7 @@
 		7525C4E42AB07627003D55F3 /* PlacesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4E32AB07627003D55F3 /* PlacesLoader.swift */; };
 		7525C4E72AB076C7003D55F3 /* RemotePlacesLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */; };
 		7525C4EB2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */; };
+		7525C4F22AB0F36A003D55F3 /* RemotePlacesLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4F02AB0F334003D55F3 /* RemotePlacesLoader.swift */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -51,6 +52,7 @@
 		7525C4E32AB07627003D55F3 /* PlacesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLoader.swift; sourceTree = "<group>"; };
 		7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlacesLoaderTests.swift; sourceTree = "<group>"; };
 		7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeak.swift"; sourceTree = "<group>"; };
+		7525C4F02AB0F334003D55F3 /* RemotePlacesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlacesLoader.swift; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -112,7 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				7525C4E02AB07517003D55F3 /* PlacesFeature */,
-				B13196B429DC817600981DC7 /* Network */,
+				B13196B429DC817600981DC7 /* Places API */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -134,14 +136,23 @@
 			path = PlacesFeature;
 			sourceTree = "<group>";
 		};
-		B13196B429DC817600981DC7 /* Network */ = {
+		7525C4EF2AB0F309003D55F3 /* AdyenNetworking */ = {
 			isa = PBXGroup;
 			children = (
 				B13196B529DC817600981DC7 /* PlacesAPIContext.swift */,
-				B13196B629DC817600981DC7 /* Model */,
 				B13196B929DC817600981DC7 /* Requests */,
+				B13196B629DC817600981DC7 /* Model */,
 			);
-			path = Network;
+			path = AdyenNetworking;
+			sourceTree = "<group>";
+		};
+		B13196B429DC817600981DC7 /* Places API */ = {
+			isa = PBXGroup;
+			children = (
+				7525C4F02AB0F334003D55F3 /* RemotePlacesLoader.swift */,
+				7525C4EF2AB0F309003D55F3 /* AdyenNetworking */,
+			);
+			path = "Places API";
 			sourceTree = "<group>";
 		};
 		B13196B629DC817600981DC7 /* Model */ = {
@@ -393,6 +404,7 @@
 				7525C4D72AB070A0003D55F3 /* RemotePlaceItem.swift in Sources */,
 				7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */,
 				7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */,
+				7525C4F22AB0F36A003D55F3 /* RemotePlacesLoader.swift in Sources */,
 				7525C4D92AB070A8003D55F3 /* SearchPlacesRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

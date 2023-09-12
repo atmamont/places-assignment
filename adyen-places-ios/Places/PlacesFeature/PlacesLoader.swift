@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct PlaceItem: Equatable {
+public struct PlaceItem: Equatable {
     let latitude: Double
     let longitude: Double
     let name: String
     let description: String
 }
 
-protocol PlacesLoader {
+public protocol PlacesLoader {
     func load(completion: Result<[PlaceItem], Error>)
 }
