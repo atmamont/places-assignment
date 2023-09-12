@@ -19,7 +19,8 @@ class RemotePlacesLoader {
     }
     
     func load(completion: @escaping LoadResult) {
-        apiClient.perform(SearchPlacesRequest()) { result in
+        apiClient.perform(SearchPlacesRequest()) { [weak self] result in
+            guard let self else { return }
             switch result {
             case let .success(response):
                 completion(.success(self.map(response.results)))
