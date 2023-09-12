@@ -48,6 +48,7 @@
 		7525C4C12AB07012003D55F3 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlacesTests.xctestplan; sourceTree = "<group>"; };
 		7525C4E32AB07627003D55F3 /* PlacesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLoader.swift; sourceTree = "<group>"; };
+		7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlacesLoaderTests.swift; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		7525C4C72AB07012003D55F3 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */,
 			);
 			path = PlacesTests;
 			sourceTree = "<group>";
@@ -396,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7525C4E72AB076C7003D55F3 /* RemotePlacesLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
