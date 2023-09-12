@@ -10,7 +10,7 @@ import AdyenNetworking
 @testable import Places
 
 class RemotePlacesLoader {
-    typealias LoadResult = (Result<[PlaceItem], Error>) -> Void
+    typealias LoadResult = Result<[PlaceItem], Error>
     
     private let apiClient: APIClientProtocol
     
@@ -18,7 +18,7 @@ class RemotePlacesLoader {
         self.apiClient = apiClient
     }
     
-    func load(completion: @escaping LoadResult) {
+    func load(completion: @escaping (LoadResult) -> Void) {
         apiClient.perform(SearchPlacesRequest()) { [weak self] result in
             guard let self else { return }
             switch result {
@@ -101,6 +101,26 @@ final class RemotePlacesLoaderTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
     
+    func test_load_deliversPlacesOnSuccess() {
+        let (sut, client) = makeSUT()
+        let exp = expectation(description: "Wait for load completion")
+        let expectedPlaces = makePlaces()
+        let expectedMappedPlaces = expectedPlaces.toModels()
+        
+        sut.load { result in
+            switch result {
+            case let .success(receivedPlaces):
+                XCTAssertEqual(expectedMappedPlaces, receivedPlaces, "Expected to receive \(expectedMappedPlaces), instead got \(receivedPlaces)")
+            case .failure:
+                XCTFail("Expected to not receive any error")
+            }
+            exp.fulfill()
+        }
+        
+        client.completeWithPlaces(expectedPlaces)
+        
+        wait(for: [exp], timeout: 1.0)
+    }
     // MARK: - Helpers
     
     private let placesRequestPath = "places/search"
@@ -113,6 +133,19 @@ final class RemotePlacesLoaderTests: XCTestCase {
         trackForMemoryLeaks(client, file: file, line: line)
         
         return (sut: sut, client: client)
+    }
+    
+    private func makePlaces() -> [RemotePlaceItem] {
+        let place1 = RemotePlaceItem(
+            name: "Place 1",
+            geocodes: .init(main: .init(latitude: 1.111, longitude: 2.222),
+                           roof: nil,
+                           drop_off: nil,
+                           front_door: nil),
+            location: [.init(formatted_address: "Address")],
+            distance: 100)
+        let places = [place1]
+        return places
     }
 
     private class APIClientSpy: APIClientProtocol {
@@ -128,6 +161,11 @@ final class RemotePlacesLoaderTests: XCTestCase {
         
         func completeWithError(_ error: Error, at index: Int = 0) {
             completions[index](.failure(error))
+        }
+        
+        func completeWithPlaces(_ places: [RemotePlaceItem], at index: Int = 0) {
+            let response = PlacesResponse(results: places)
+            completions[index](.success(response))
         }
     }
 }
