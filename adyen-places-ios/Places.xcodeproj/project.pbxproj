@@ -14,7 +14,6 @@
 		5AC5AD122A0278F000C59D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD112A0278F000C59D84 /* Assets.xcassets */; };
 		5AC5AD152A0278F000C59D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AC5AD132A0278F000C59D84 /* LaunchScreen.storyboard */; };
 		7525C4C22AB07012003D55F3 /* Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7525C4B82AB07012003D55F3 /* Places.framework */; };
-		7525C4C92AB07012003D55F3 /* PlacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4C82AB07012003D55F3 /* PlacesTests.swift */; };
 		7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B529DC817600981DC7 /* PlacesAPIContext.swift */; };
 		7525C4D72AB070A0003D55F3 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B729DC817600981DC7 /* Place.swift */; };
 		7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13196B829DC817600981DC7 /* PlacesResponse.swift */; };
@@ -45,7 +44,6 @@
 		5AC5AD162A0278F000C59D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7525C4B82AB07012003D55F3 /* Places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7525C4C12AB07012003D55F3 /* PlacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7525C4C82AB07012003D55F3 /* PlacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTests.swift; sourceTree = "<group>"; };
 		7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlacesTests.xctestplan; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
@@ -115,7 +113,6 @@
 		7525C4C72AB07012003D55F3 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
-				7525C4C82AB07012003D55F3 /* PlacesTests.swift */,
 			);
 			path = PlacesTests;
 			sourceTree = "<group>";
@@ -293,6 +290,7 @@
 					};
 					7525C4C02AB07012003D55F3 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1430;
 						TestTargetID = B15C5DA629D61A9200A816C4;
 					};
 					B15C5DC029D61A9300A816C4 = {
@@ -385,7 +383,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7525C4C92AB07012003D55F3 /* PlacesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +553,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TDY757HQH;
@@ -565,6 +563,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrii-mamchenko.adyen-assignment.PlacesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -574,6 +573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4TDY757HQH;
