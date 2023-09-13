@@ -103,7 +103,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
 
     func test_startUpdating_deliversValues() {
-        let (sut, _) = makeSUT()
+        var (sut, _) = makeSUT()
 
         let exp = expectation(description: "Waiting for coordinates")
         
@@ -117,7 +117,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
     
     func test_coreLocationManagerDoesNotDeliverValuesOnDeallocate() {
-        var weakSut: CoreLocationController? = CoreLocationController(locationManager: CLLocationManagerSpy())
+        var weakSut: LocationController? = CoreLocationController(locationManager: CLLocationManagerSpy())
         
         var capturedLocation: LocationController.Location?
         weakSut?.locationUpdateHandler = { location in
@@ -132,7 +132,7 @@ class CoreLocationManagerTests: XCTestCase {
 
     // MARK: - Helpers
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CoreLocationController, CLLocationManagerSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (LocationController, CLLocationManagerSpy) {
         let manager = CLLocationManagerSpy()
         let sut = CoreLocationController(locationManager: manager)
 
