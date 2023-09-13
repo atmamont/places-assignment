@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import Places
-
 import MapKit
+
+import Places
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var label: UILabel!
     
     // TODO: Inject from outside
     var loader: PlacesLoader? = PlacesLoaderAssembly.foursquareLoader()
@@ -43,7 +43,7 @@ class ViewController: UIViewController {
         locationController.stopUpdating()
     }
 
-    // MARK: - Map rendering
+    // MARK: - Map
     
     private func renderAnnotations(_ annotations: [MKAnnotation]) {
         mapView.addAnnotations(annotations)
@@ -73,10 +73,6 @@ private class Venue: NSObject, MKAnnotation {
 }
 
 private extension Array where Element == PlaceItem {
-    func toString() -> String {
-        (self as NSArray).componentsJoined(by: ", ")
-    }
-    
     func toAnnotations() -> [MKAnnotation] {
         map { Venue(latitide: $0.latitude,
                     longitude: $0.longitude,
