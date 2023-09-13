@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15C5DA629D61A9200A816C4"
-               BuildableName = "PlacesSwiftUI.app"
-               BlueprintName = "PlacesSwiftUI"
+               BlueprintIdentifier = "5AC5AD052A0278EF00C59D84"
+               BuildableName = "PlacesUIKit.app"
+               BlueprintName = "PlacesUIKit"
                ReferencedContainer = "container:Places.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,41 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       shouldAutocreateTestPlan = "YES">
-      <Testables>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15C5DB629D61A9300A816C4"
-               BuildableName = "PlacesTests.xctest"
-               BlueprintName = "PlacesTests"
-               ReferencedContainer = "container:Places.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B15C5DC029D61A9300A816C4"
-               BuildableName = "PlacesUITests.xctest"
-               BlueprintName = "PlacesUITests"
-               ReferencedContainer = "container:Places.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7525C4C02AB07012003D55F3"
-               BuildableName = "PlacesTests.xctest"
-               BlueprintName = "PlacesTests"
-               ReferencedContainer = "container:Places.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -78,9 +43,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15C5DA629D61A9200A816C4"
-            BuildableName = "PlacesSwiftUI.app"
-            BlueprintName = "PlacesSwiftUI"
+            BlueprintIdentifier = "5AC5AD052A0278EF00C59D84"
+            BuildableName = "PlacesUIKit.app"
+            BlueprintName = "PlacesUIKit"
             ReferencedContainer = "container:Places.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -95,9 +60,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B15C5DA629D61A9200A816C4"
-            BuildableName = "PlacesSwiftUI.app"
-            BlueprintName = "PlacesSwiftUI"
+            BlueprintIdentifier = "5AC5AD052A0278EF00C59D84"
+            BuildableName = "PlacesUIKit.app"
+            BlueprintName = "PlacesUIKit"
             ReferencedContainer = "container:Places.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
