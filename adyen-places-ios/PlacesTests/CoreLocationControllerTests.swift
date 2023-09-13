@@ -9,8 +9,8 @@ import XCTest
 import Places
 import CoreLocation
 
-final class CoreLocationController: NSObject, CLLocationManagerDelegate {
-    var locationUpdateHandler: ((LocationController.Location) -> Void)?
+final class CoreLocationController: NSObject, CLLocationManagerDelegate, LocationController {
+    var locationUpdateHandler: ((Location) -> Void)?
     
     private let locationManager: CLLocationManager
     

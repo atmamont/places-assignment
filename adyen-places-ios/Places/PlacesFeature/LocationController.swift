@@ -15,5 +15,5 @@ public protocol LocationController {
     func startUpdating()
     func stopUpdating()
 
-    var currentLocation: Location? { get }
+    var locationUpdateHandler: ((Location) -> Void)? { get set }
 }
