@@ -9,8 +9,8 @@ import XCTest
 import Places
 import CoreLocation
 
-final class CoreLocationController {
-    var currentLocation: LocationController.Location?
+final class CoreLocationController: NSObject, CLLocationManagerDelegate {
+    var locationUpdateHandler: ((LocationController.Location) -> Void)?
     
     private let locationManager: CLLocationManager
     
@@ -22,14 +22,24 @@ final class CoreLocationController {
     func requestAuthorization() {
         locationManager.requestWhenInUseAuthorization()
     }
-//
-//    func startUpdating() {
-//
-//    }
+
+    func startUpdating() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+    }
 //
 //    func stopUpdating() {
 //
 //    }
+    
+    // MARK: - CLLocationManagerDelegate
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let coordinate = locations.last?.coordinate else { return }
+        
+        let location = LocationController.Location(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        locationUpdateHandler?(location)
+    }
 }
 
 class CoreLocationManagerTests: XCTestCase {
@@ -63,6 +73,20 @@ class CoreLocationManagerTests: XCTestCase {
         XCTAssertEqual(manager.requestWhenInUseAuthorizationCallCount, 1)
     }
     
+    func test_startUpdating_deliversValues() {
+        let manager = CLLocationManagerSpy()
+        let sut = CoreLocationController(locationManager: manager)
+        let exp = expectation(description: "Waiting for coordinates")
+        
+        let handler: ((LocationController.Location) -> Void) = { location in
+            exp.fulfill()
+        }
+        sut.locationUpdateHandler = handler
+        sut.startUpdating()
+
+        wait(for: [exp], timeout: 1.0)
+    }
+
     private class CLLocationManagerSpy: CLLocationManager {
         var requestWhenInUseAuthorizationCallCount = 0
         var requestAuthorizedAlwaysCallCount = 0
@@ -74,6 +98,12 @@ class CoreLocationManagerTests: XCTestCase {
         
         override func requestAlwaysAuthorization() {
             requestAuthorizedAlwaysCallCount += 1
+        }
+        
+        override func startUpdatingLocation() {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+                self.delegate?.locationManager?(self, didUpdateLocations: [CLLocation(latitude: 1.0, longitude: 1.0)])
+            }
         }
     }
 }
