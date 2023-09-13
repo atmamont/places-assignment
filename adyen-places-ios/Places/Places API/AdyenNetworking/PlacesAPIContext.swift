@@ -17,9 +17,9 @@ internal struct PlacesAPIContext: AnyAPIContext {
     let environment: AnyAPIEnvironment = Environment.default
     
     var headers: [String : String] = [
-        "Accept": "", // TODO: Fill it with necessary value.
-        "Content-Type": "", // TODO: Fill it with necessary value.
-        "Authorization": "" // TODO: Fill it with your api key.
+        "Accept": "application/json",
+        "Content-Type": "application/json",
+        "Authorization": FSQConfig.fsq_token
     ]
     
     var queryParameters: [URLQueryItem] = []

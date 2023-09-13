@@ -26,6 +26,9 @@
 		7525C4F52AB1A4E5003D55F3 /* Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7525C4B82AB07012003D55F3 /* Places.framework */; };
 		7525C4F62AB1A4E5003D55F3 /* Places.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7525C4B82AB07012003D55F3 /* Places.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7525C4FB2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */; };
+		7525C5012AB1E6A3003D55F3 /* Dev.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7525C4FE2AB1DD24003D55F3 /* Dev.xcconfig */; };
+		7525C5022AB1E742003D55F3 /* FSQConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4FF2AB1DD95003D55F3 /* FSQConfig.swift */; };
+		7525C5092AB1ED50003D55F3 /* DevSecrets.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 7525C5082AB1ED50003D55F3 /* DevSecrets.xcconfig */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -79,6 +82,9 @@
 		7525C4F02AB0F334003D55F3 /* RemotePlacesLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemotePlacesLoader.swift; sourceTree = "<group>"; };
 		7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesLoaderAssembly.swift; sourceTree = "<group>"; };
 		7525C4FC2AB1D9CC003D55F3 /* PlacesUIKit.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlacesUIKit.xctestplan; sourceTree = "<group>"; };
+		7525C4FE2AB1DD24003D55F3 /* Dev.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Dev.xcconfig; sourceTree = "<group>"; };
+		7525C4FF2AB1DD95003D55F3 /* FSQConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSQConfig.swift; sourceTree = "<group>"; };
+		7525C5082AB1ED50003D55F3 /* DevSecrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevSecrets.xcconfig; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 		5AC5AD072A0278EF00C59D84 /* PlacesUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7525C4FD2AB1DCBB003D55F3 /* Configuration */,
 				5AC5AD082A0278EF00C59D84 /* AppDelegate.swift */,
 				5AC5AD0A2A0278EF00C59D84 /* SceneDelegate.swift */,
 				5AC5AD0C2A0278EF00C59D84 /* ViewController.swift */,
@@ -159,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				7525C4E32AB07627003D55F3 /* PlacesLoader.swift */,
+				7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */,
 			);
 			path = PlacesFeature;
 			sourceTree = "<group>";
@@ -173,12 +181,21 @@
 			path = AdyenNetworking;
 			sourceTree = "<group>";
 		};
+		7525C4FD2AB1DCBB003D55F3 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				7525C4FE2AB1DD24003D55F3 /* Dev.xcconfig */,
+				7525C5082AB1ED50003D55F3 /* DevSecrets.xcconfig */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		B13196B429DC817600981DC7 /* Places API */ = {
 			isa = PBXGroup;
 			children = (
 				7525C4F02AB0F334003D55F3 /* RemotePlacesLoader.swift */,
+				7525C4FF2AB1DD95003D55F3 /* FSQConfig.swift */,
 				7525C4EF2AB0F309003D55F3 /* AdyenNetworking */,
-				7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */,
 			);
 			path = "Places API";
 			sourceTree = "<group>";
@@ -388,7 +405,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC5AD152A0278F000C59D84 /* LaunchScreen.storyboard in Resources */,
+				7525C5092AB1ED50003D55F3 /* DevSecrets.xcconfig in Resources */,
 				5AC5AD122A0278F000C59D84 /* Assets.xcassets in Resources */,
+				7525C5012AB1E6A3003D55F3 /* Dev.xcconfig in Resources */,
 				5AC5AD102A0278EF00C59D84 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,6 +452,7 @@
 			files = (
 				7525C4E42AB07627003D55F3 /* PlacesLoader.swift in Sources */,
 				7525C4D72AB070A0003D55F3 /* RemotePlaceItem.swift in Sources */,
+				7525C5022AB1E742003D55F3 /* FSQConfig.swift in Sources */,
 				7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */,
 				7525C4D82AB070A4003D55F3 /* PlacesResponse.swift in Sources */,
 				7525C4FB2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift in Sources */,
@@ -496,6 +516,7 @@
 /* Begin XCBuildConfiguration section */
 		5AC5AD182A0278F000C59D84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7525C4FE2AB1DD24003D55F3 /* Dev.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

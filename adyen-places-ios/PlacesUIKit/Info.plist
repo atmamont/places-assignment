@@ -21,5 +21,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>FSQ_TOKEN</key>
+	<string>$(FSQ_TOKEN)</string>
 </dict>
 </plist>

@@ -3,3 +3,4 @@
 *.xcuserdatad
 *.dtmp
 *.bkp
+DevSecrets.xcconfig

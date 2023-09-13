@@ -1,0 +1,14 @@
+//
+//  Dev.xcconfig
+//  Places
+//
+//  Created by Andrei on 13/09/2023.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+
+#include "DevSecrets.xcconfig"
+
+// FSQ_TOKEN = defined in DevSecrets.xcconfig
