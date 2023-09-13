@@ -13,7 +13,7 @@ internal struct SearchPlacesRequest: Request {
     
     typealias ErrorResponseType = EmptyErrorResponse
     
-    let method: HTTPMethod = .post
+    let method: HTTPMethod = .get
     
     let path: String = "places/search"
     
