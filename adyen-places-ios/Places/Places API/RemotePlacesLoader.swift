@@ -7,9 +7,7 @@
 
 import AdyenNetworking
 
-public class RemotePlacesLoader {
-    public typealias LoadResult = Result<[PlaceItem], Error>
-    
+public class RemotePlacesLoader: PlacesLoader {
     private let apiClient: APIClientProtocol
     
     public init(apiClient: APIClientProtocol) {

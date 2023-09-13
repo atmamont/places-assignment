@@ -15,5 +15,7 @@ public struct PlaceItem: Equatable {
 }
 
 public protocol PlacesLoader {
-    func load(completion: Result<[PlaceItem], Error>)
+    typealias LoadResult = Result<[PlaceItem], Error>
+
+    func load(completion: @escaping (LoadResult) -> Void)
 }
