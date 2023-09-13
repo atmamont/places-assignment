@@ -9,40 +9,6 @@ import XCTest
 import Places
 import CoreLocation
 
-final class CoreLocationController: NSObject, CLLocationManagerDelegate, LocationController {
-    var locationUpdateHandler: ((Location) -> Void)?
-    
-    private let locationManager: CLLocationManager
-    
-    init(locationManager: CLLocationManager = CLLocationManager()) {
-        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-        self.locationManager = locationManager
-    }
-
-    func requestAuthorization() {
-        locationManager.requestWhenInUseAuthorization()
-    }
-
-    func startUpdating() {
-        locationManager.delegate = self
-        locationManager.startUpdatingLocation()
-    }
-
-    func stopUpdating() {
-        locationManager.stopUpdatingLocation()
-        locationManager.delegate = nil
-    }
-    
-    // MARK: - CLLocationManagerDelegate
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let coordinate = locations.last?.coordinate else { return }
-        
-        let location = LocationController.Location(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        locationUpdateHandler?(location)
-    }
-}
-
 class CoreLocationManagerTests: XCTestCase {
     func test_init_doesNotRequestAuthorizationWhenInUse() {
         let (_, manager) = makeSUT()
