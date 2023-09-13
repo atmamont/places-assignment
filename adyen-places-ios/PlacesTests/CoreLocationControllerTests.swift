@@ -73,7 +73,7 @@ class CoreLocationManagerTests: XCTestCase {
 
         let exp = expectation(description: "Waiting for coordinates")
         
-        let handler: ((LocationController.Location) -> Void) = { location in
+        let handler: ((Location) -> Void) = { location in
             exp.fulfill()
         }
         sut.locationUpdateHandler = handler
@@ -85,7 +85,7 @@ class CoreLocationManagerTests: XCTestCase {
     func test_coreLocationManagerDoesNotDeliverValuesOnDeallocate() {
         var weakSut: LocationController? = CoreLocationController(locationManager: CLLocationManagerSpy())
         
-        var capturedLocation: LocationController.Location?
+        var capturedLocation: Location?
         weakSut?.locationUpdateHandler = { location in
             capturedLocation = location
         }

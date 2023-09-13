@@ -14,7 +14,7 @@ public class RemotePlacesLoader: PlacesLoader {
         self.apiClient = apiClient
     }
     
-    public func load(completion: @escaping (LoadResult) -> Void) {
+    public func load(location: Location? = nil, radius: Int? = nil, completion: @escaping (LoadResult) -> Void) {
         apiClient.perform(SearchPlacesRequest()) { [weak self] result in
             guard let self else { return }
             switch result {

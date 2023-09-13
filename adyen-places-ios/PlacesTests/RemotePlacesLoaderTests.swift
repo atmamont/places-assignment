@@ -64,7 +64,7 @@ final class RemotePlacesLoaderTests: XCTestCase {
 
     func test_load_doesNotDeliverResultAfterSUTWasDeallocated() {
         let client = APIClientSpy()
-        var weakSut: PlacesLoader? = RemotePlacesLoader(apiClient: client)
+        var weakSut: RemotePlacesLoader? = RemotePlacesLoader(apiClient: client)
 
         var capturedResults = [PlacesLoader.LoadResult]()
         weakSut?.load { capturedResults.append($0) }
@@ -79,7 +79,7 @@ final class RemotePlacesLoaderTests: XCTestCase {
     
     private let placesRequestPath = "places/search"
     
-    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: PlacesLoader, client: APIClientSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (sut: RemotePlacesLoader, client: APIClientSpy) {
         let client = APIClientSpy()
         let sut = RemotePlacesLoader(apiClient: client)
         
@@ -89,10 +89,10 @@ final class RemotePlacesLoaderTests: XCTestCase {
         return (sut: sut, client: client)
     }
     
-    private func expect(_ sut: PlacesLoader, toCompleteWith expectedResult: PlacesLoader.LoadResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
+    private func expect(_ sut: PlacesLoader, location: Location? = nil, radius: Int? = nil, toCompleteWith expectedResult: PlacesLoader.LoadResult, when action: () -> Void, file: StaticString = #file, line: UInt = #line) {
         let exp = expectation(description: "Wait for load completion")
         
-        sut.load { receivedResult in
+        sut.load(location: location, radius: radius) { receivedResult in
             switch (receivedResult, expectedResult) {
             case let (.success(receivedPlaces), .success(expectedPlaces)):
                 XCTAssertEqual(receivedPlaces, expectedPlaces, file: file, line: line)

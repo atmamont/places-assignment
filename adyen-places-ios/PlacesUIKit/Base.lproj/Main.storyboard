@@ -17,19 +17,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-f5-XD0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-f5-XD0" userLabel="Root Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAS-D6-enh">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="787.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="752"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                     </mapView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jil-HX-AHv">
-                                        <rect key="frame" x="0.0" y="797.66666666666663" width="393" height="20.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-hq-lfZ" userLabel="Radius View">
+                                        <rect key="frame" x="0.0" y="762" width="393" height="56"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="522-YG-XXJ" userLabel="Radius Slider">
+                                                <rect key="frame" x="120.33333333333333" y="13" width="254.66666666666669" height="31"/>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="Radius (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCC-XY-10R" userLabel="Radius Label">
+                                                <rect key="frame" x="20" y="10" width="82.333333333333329" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="522-YG-XXJ" secondAttribute="trailing" constant="20" id="Hle-vA-ks1"/>
+                                            <constraint firstItem="522-YG-XXJ" firstAttribute="centerY" secondItem="bCC-XY-10R" secondAttribute="centerY" id="Ilo-F2-Uvd"/>
+                                            <constraint firstItem="bCC-XY-10R" firstAttribute="leading" secondItem="YAp-hq-lfZ" secondAttribute="leading" constant="20" id="bvj-I0-Z8c"/>
+                                            <constraint firstItem="bCC-XY-10R" firstAttribute="top" secondItem="YAp-hq-lfZ" secondAttribute="top" constant="10" id="oR0-Ow-yzv"/>
+                                            <constraint firstAttribute="bottom" secondItem="bCC-XY-10R" secondAttribute="bottom" constant="10" id="ycy-Wv-YA3"/>
+                                            <constraint firstItem="522-YG-XXJ" firstAttribute="leading" secondItem="bCC-XY-10R" secondAttribute="trailing" constant="20" id="zi9-GI-Ut8"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -44,7 +61,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="91O-Dj-sTO"/>
                     <connections>
-                        <outlet property="label" destination="jil-HX-AHv" id="OG7-9D-97X"/>
                         <outlet property="mapView" destination="NAS-D6-enh" id="Vfa-ri-E2Y"/>
                     </connections>
                 </viewController>
