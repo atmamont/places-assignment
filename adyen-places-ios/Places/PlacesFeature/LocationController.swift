@@ -6,18 +6,12 @@
 //
 
 import CoreLocation
-import Combine
-
-public enum LocationAuthorizationStatus {
-    case granted
-    case denied
-}
 
 public protocol LocationController {
     
     typealias Location = (latitude: Double, longitude: Double)
     
-    func requestAuthorization() async -> LocationAuthorizationStatus
+    func requestAuthorization()
     func startUpdating()
     func stopUpdating()
 
