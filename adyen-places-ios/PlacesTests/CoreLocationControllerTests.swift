@@ -45,29 +45,25 @@ final class CoreLocationController: NSObject, CLLocationManagerDelegate {
 
 class CoreLocationManagerTests: XCTestCase {
     func test_init_doesNotRequestAuthorizationWhenInUse() {
-        let manager = CLLocationManagerSpy()
-        let _ = CoreLocationController(locationManager: manager)
+        let (_, manager) = makeSUT()
         
         XCTAssertEqual(manager.requestWhenInUseAuthorizationCallCount, 0)
     }
     
     func test_init_doesNotRequestAuthorizedAlways() {
-        let manager = CLLocationManagerSpy()
-        let _ = CoreLocationController(locationManager: manager)
+        let (_, manager) = makeSUT()
         
         XCTAssertEqual(manager.requestAuthorizedAlwaysCallCount, 0)
     }
     
     func test_init_setsDesiredAccuracy() {
-        let manager = CLLocationManagerSpy()
-        let _ = CoreLocationController(locationManager: manager)
+        let (_, manager) = makeSUT()
         
         XCTAssertEqual(manager.desiredAccuracy, kCLLocationAccuracyHundredMeters)
     }
 
     func test_requestAuthorization_requestsWenInUseAuthorization() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, manager) = makeSUT()
         
         sut.requestAuthorization()
         
@@ -75,8 +71,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
     
     func test_startUpdating_callsLocationManagerStartUpdating() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, manager) = makeSUT()
         
         sut.startUpdating()
 
@@ -84,8 +79,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
 
     func test_startUpdating_setsDelegate() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, manager) = makeSUT()
         
         sut.startUpdating()
 
@@ -93,8 +87,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
 
     func test_stopUpdating_callsLocationManagerStopUpdating() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, manager) = makeSUT()
         
         sut.stopUpdating()
 
@@ -102,8 +95,7 @@ class CoreLocationManagerTests: XCTestCase {
     }
 
     func test_stopUpdating_unsetsDelegate() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, manager) = makeSUT()
         
         sut.stopUpdating()
 
@@ -111,8 +103,8 @@ class CoreLocationManagerTests: XCTestCase {
     }
 
     func test_startUpdating_deliversValues() {
-        let manager = CLLocationManagerSpy()
-        let sut = CoreLocationController(locationManager: manager)
+        let (sut, _) = makeSUT()
+
         let exp = expectation(description: "Waiting for coordinates")
         
         let handler: ((LocationController.Location) -> Void) = { location in
@@ -124,6 +116,18 @@ class CoreLocationManagerTests: XCTestCase {
         wait(for: [exp], timeout: 1.0)
     }
 
+    // MARK: - Helpers
+    
+    private func makeSUT() -> (CoreLocationController, CLLocationManagerSpy) {
+        let manager = CLLocationManagerSpy()
+        let sut = CoreLocationController(locationManager: manager)
+
+        trackForMemoryLeaks(sut)
+        trackForMemoryLeaks(manager)
+        
+        return (sut, manager)
+    }
+    
     private class CLLocationManagerSpy: CLLocationManager {
         var requestWhenInUseAuthorizationCallCount = 0
         var requestAuthorizedAlwaysCallCount = 0
