@@ -21,6 +21,8 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Device location is needed to help finding nearby venues </string>
 	<key>FSQ_TOKEN</key>
 	<string>$(FSQ_TOKEN)</string>
 </dict>
