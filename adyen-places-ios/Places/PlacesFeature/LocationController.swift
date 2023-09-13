@@ -8,9 +8,6 @@
 import CoreLocation
 
 public protocol LocationController {
-    
-    typealias Location = (latitude: Double, longitude: Double)
-    
     func requestAuthorization()
     func startUpdating()
     func stopUpdating()

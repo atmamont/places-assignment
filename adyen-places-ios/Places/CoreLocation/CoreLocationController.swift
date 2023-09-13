@@ -36,7 +36,8 @@ public final class CoreLocationController: NSObject, CLLocationManagerDelegate, 
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let coordinate = locations.last?.coordinate else { return }
         
-        let location = LocationController.Location(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        let location = Location(latitude: coordinate.latitude,
+                                longitude: coordinate.longitude)
         locationUpdateHandler?(location)
     }
 }
