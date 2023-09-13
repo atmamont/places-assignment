@@ -8,10 +8,10 @@
 import Foundation
 
 public struct PlaceItem: Equatable {
-    let latitude: Double
-    let longitude: Double
-    let name: String
-    let description: String
+    public let latitude: Double
+    public let longitude: Double
+    public let name: String
+    public let address: String
 }
 
 public protocol PlacesLoader {

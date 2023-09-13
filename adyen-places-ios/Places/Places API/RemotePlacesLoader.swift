@@ -44,7 +44,7 @@ internal extension Array where Element == RemotePlaceItem {
                 latitude: $0.latitude,
                 longitude: $0.longitude,
                 name: $0.name,
-                description: "")
+                address: $0.location.formatted_address)
         }
     }
 }
