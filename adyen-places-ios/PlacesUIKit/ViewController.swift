@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var loader: PlacesLoader? = PlacesLoaderAssembly.foursquareLoader()
     lazy var locationController: LocationController = {
         let controller = CoreLocationController()
-        controller.locationUpdateHandler = self.handleLocationUpdate
+        controller.locationUpdateHandler = self.handleSingleLocationUpdate
         return controller
     }()
         
@@ -39,8 +39,7 @@ class ViewController: UIViewController {
         })
     }
     
-    func handleLocationUpdate(location: LocationController.Location) {
-        print(location)
+    func handleSingleLocationUpdate(location: LocationController.Location) {
         locationController.stopUpdating()
     }
 
