@@ -115,6 +115,20 @@ class CoreLocationManagerTests: XCTestCase {
 
         wait(for: [exp], timeout: 1.0)
     }
+    
+    func test_coreLocationManagerDoesNotDeliverValuesOnDeallocate() {
+        var weakSut: CoreLocationController? = CoreLocationController(locationManager: CLLocationManagerSpy())
+        
+        var capturedLocation: LocationController.Location?
+        weakSut?.locationUpdateHandler = { location in
+            capturedLocation = location
+        }
+
+        weakSut?.startUpdating()
+        weakSut = nil
+        
+        XCTAssertNil(capturedLocation, "Should not deliver values after deallocation")
+    }
 
     // MARK: - Helpers
     
