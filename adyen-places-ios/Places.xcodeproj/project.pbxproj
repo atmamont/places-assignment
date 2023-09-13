@@ -132,6 +132,7 @@
 		5AC5AD072A0278EF00C59D84 /* PlacesUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				7525C4FC2AB1D9CC003D55F3 /* PlacesUIKit.xctestplan */,
 				7525C4FD2AB1DCBB003D55F3 /* Configuration */,
 				5AC5AD082A0278EF00C59D84 /* AppDelegate.swift */,
 				5AC5AD0A2A0278EF00C59D84 /* SceneDelegate.swift */,
@@ -156,6 +157,7 @@
 		7525C4C72AB07012003D55F3 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */,
 				7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */,
 				7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */,
 			);
@@ -220,8 +222,6 @@
 		B15C5D9E29D61A9200A816C4 = {
 			isa = PBXGroup;
 			children = (
-				7525C4FC2AB1D9CC003D55F3 /* PlacesUIKit.xctestplan */,
-				7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */,
 				5AC5AD072A0278EF00C59D84 /* PlacesUIKit */,
 				7525C4B92AB07012003D55F3 /* Places */,
 				7525C4C72AB07012003D55F3 /* PlacesTests */,

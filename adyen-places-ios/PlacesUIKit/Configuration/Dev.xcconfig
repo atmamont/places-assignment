@@ -1,6 +1,6 @@
 //
 //  Dev.xcconfig
-//  Places
+//  PlacesUIKit
 //
 //  Created by Andrei on 13/09/2023.
 //
@@ -12,3 +12,6 @@
 #include "DevSecrets.xcconfig"
 
 // FSQ_TOKEN = defined in DevSecrets.xcconfig
+
+// This approach doesn't prevent someone from getting a secret from the app
+// bundle. This helps to prevent git secret leakage.
