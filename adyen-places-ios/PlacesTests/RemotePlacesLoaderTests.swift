@@ -42,6 +42,16 @@ final class RemotePlacesLoaderTests: XCTestCase {
         })
     }
     
+    func test_load_deliversEmptyPlacesWhenReceivingEpmtyRespinseOnSuccess() {
+        let (sut, client) = makeSUT()
+        let expectedPlaces: [RemotePlaceItem] = []
+        let expectedMappedPlaces = expectedPlaces.toModels()
+        
+        expect(sut, toCompleteWith: .success(expectedMappedPlaces), when: {
+            client.completeWithPlaces(expectedPlaces)
+        })
+    }
+    
     func test_load_deliversPlacesOnSuccess() {
         let (sut, client) = makeSUT()
         let expectedPlaces = makePlaces()
@@ -51,7 +61,7 @@ final class RemotePlacesLoaderTests: XCTestCase {
             client.completeWithPlaces(expectedPlaces)
         })
     }
-    
+
     func test_load_doesNotDeliverResultAfterSUTWasDeallocated() {
         let client = APIClientSpy()
         var weakSut: PlacesLoader? = RemotePlacesLoader(apiClient: client)
