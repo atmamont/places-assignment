@@ -88,6 +88,7 @@
 		7525C4FF2AB1DD95003D55F3 /* FSQConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSQConfig.swift; sourceTree = "<group>"; };
 		7525C5082AB1ED50003D55F3 /* DevSecrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevSecrets.xcconfig; sourceTree = "<group>"; };
 		7525C50A2AB1F59E003D55F3 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
+		7525C50C2AB1F989003D55F3 /* CoreLocationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationControllerTests.swift; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -163,6 +164,7 @@
 				7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */,
 				7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */,
 				7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */,
+				7525C50C2AB1F989003D55F3 /* CoreLocationControllerTests.swift */,
 			);
 			path = PlacesTests;
 			sourceTree = "<group>";
@@ -471,6 +473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7525C4E72AB076C7003D55F3 /* RemotePlacesLoaderTests.swift in Sources */,
+				7525C50D2AB1F989003D55F3 /* CoreLocationControllerTests.swift in Sources */,
 				7525C4EB2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
