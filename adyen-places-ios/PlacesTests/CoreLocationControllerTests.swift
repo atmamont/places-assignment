@@ -118,12 +118,12 @@ class CoreLocationManagerTests: XCTestCase {
 
     // MARK: - Helpers
     
-    private func makeSUT() -> (CoreLocationController, CLLocationManagerSpy) {
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (CoreLocationController, CLLocationManagerSpy) {
         let manager = CLLocationManagerSpy()
         let sut = CoreLocationController(locationManager: manager)
 
-        trackForMemoryLeaks(sut)
-        trackForMemoryLeaks(manager)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(manager, file: file, line: line)
         
         return (sut, manager)
     }
@@ -145,7 +145,8 @@ class CoreLocationManagerTests: XCTestCase {
         
         override func startUpdatingLocation() {
             startUpdatingLocationCallCount += 1
-            DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) { [weak self] in
+                guard let self else { return }
                 self.delegate?.locationManager?(self, didUpdateLocations: [CLLocation(latitude: 1.0, longitude: 1.0)])
             }
         }
