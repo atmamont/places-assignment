@@ -9,8 +9,17 @@ import Foundation
 internal struct RemotePlaceItem: Decodable {
     let name: String
     let geocodes: Geocodes
-    let location: [Location]
+    let location: Location
     let distance: Int
+}
+
+extension RemotePlaceItem {
+    var latitude: Double {
+        geocodes.main.latitude
+    }
+    var longitude: Double {
+        geocodes.main.longitude
+    }
 }
 
 extension RemotePlaceItem {
@@ -20,7 +29,6 @@ extension RemotePlaceItem {
     
     struct Geocodes: Decodable {
         let main: Geocode
-        let roof, drop_off, front_door: Geocode?
     }
     
     struct Geocode: Decodable {

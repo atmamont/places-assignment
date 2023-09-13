@@ -115,11 +115,8 @@ final class RemotePlacesLoaderTests: XCTestCase {
     private func makePlaces() -> [RemotePlaceItem] {
         let place1 = RemotePlaceItem(
             name: "Place 1",
-            geocodes: .init(main: .init(latitude: 1.111, longitude: 2.222),
-                           roof: nil,
-                           drop_off: nil,
-                           front_door: nil),
-            location: [.init(formatted_address: "Address")],
+            geocodes: .init(main: .init(latitude: 1.111, longitude: 2.222)),
+            location: .init(formatted_address: "Address"),
             distance: 100)
         let places = [place1]
         return places

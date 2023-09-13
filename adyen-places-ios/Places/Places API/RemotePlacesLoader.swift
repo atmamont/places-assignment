@@ -41,8 +41,8 @@ internal extension Array where Element == RemotePlaceItem {
     func toModels() -> [PlaceItem] {
         map {
             PlaceItem(
-                latitude: $0.geocodes.main.latitude,
-                longitude: $0.geocodes.main.longitude,
+                latitude: $0.latitude,
+                longitude: $0.longitude,
                 name: $0.name,
                 description: "")
         }
