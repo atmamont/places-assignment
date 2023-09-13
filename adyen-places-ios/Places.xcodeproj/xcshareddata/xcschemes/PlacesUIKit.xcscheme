@@ -29,7 +29,7 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:PlacesUIKit.xctestplan"
+            reference = "container:PlacesUIKit/PlacesUIKit.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
