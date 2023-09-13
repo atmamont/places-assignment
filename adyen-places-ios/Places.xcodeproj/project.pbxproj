@@ -161,9 +161,9 @@
 		7525C4C72AB07012003D55F3 /* PlacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				75DE90E62AB20C9A002762C7 /* Helpers */,
 				7525C4DC2AB0724B003D55F3 /* PlacesTests.xctestplan */,
 				7525C4E62AB076C7003D55F3 /* RemotePlacesLoaderTests.swift */,
-				7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */,
 				7525C50C2AB1F989003D55F3 /* CoreLocationControllerTests.swift */,
 			);
 			path = PlacesTests;
@@ -196,6 +196,14 @@
 				7525C5082AB1ED50003D55F3 /* DevSecrets.xcconfig */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		75DE90E62AB20C9A002762C7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		B13196B429DC817600981DC7 /* Places API */ = {
