@@ -9,3 +9,5 @@
 "common_ok" = "OK";
 
 "generic_network_error_alert_title" = "Network error";
+
+"places_screen_current_radius_label" = "Search radius (m): %u";
