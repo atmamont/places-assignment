@@ -12,7 +12,7 @@
         <!--Places-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Places" id="BYZ-38-t0r" customClass="ViewController" customModule="PlacesUIKit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Places" id="BYZ-38-t0r" customClass="PlacesViewController" customModule="PlacesUIKit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,30 +24,50 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="752"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                     </mapView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-hq-lfZ" userLabel="Radius View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-hq-lfZ" userLabel="Settings View">
                                         <rect key="frame" x="0.0" y="762" width="393" height="56"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="522-YG-XXJ" userLabel="Radius Slider">
-                                                <rect key="frame" x="120.33333333333333" y="13" width="254.66666666666669" height="31"/>
-                                                <connections>
-                                                    <action selector="onSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="s10-sY-9k2"/>
-                                                </connections>
-                                            </slider>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="Radius (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCC-XY-10R" userLabel="Radius Label">
-                                                <rect key="frame" x="20" y="10" width="82.333333333333329" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cEf-CL-djJ">
+                                                <rect key="frame" x="20" y="0.0" width="353" height="56"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="Search radius (m): 1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCC-XY-10R" userLabel="Current radius Label">
+                                                        <rect key="frame" x="0.0" y="0.0" width="353" height="16"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jsW-AU-Dy4">
+                                                        <rect key="frame" x="0.0" y="26" width="353" height="30"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yEw-VQ-F4f" userLabel="Minumum value label">
+                                                                <rect key="frame" x="0.0" y="0.0" width="28.333333333333332" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <slider opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="522-YG-XXJ" userLabel="Radius Slider">
+                                                                <rect key="frame" x="36.333333333333343" y="0.0" width="260" height="31"/>
+                                                                <connections>
+                                                                    <action selector="onSliderValueChange:event:" destination="BYZ-38-t0r" eventType="valueChanged" id="Vcf-J8-mxL"/>
+                                                                </connections>
+                                                            </slider>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYQ-fC-T8a" userLabel="Maximum value label">
+                                                                <rect key="frame" x="304.33333333333331" y="0.0" width="48.666666666666686" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="522-YG-XXJ" secondAttribute="trailing" constant="20" id="Hle-vA-ks1"/>
-                                            <constraint firstItem="522-YG-XXJ" firstAttribute="centerY" secondItem="bCC-XY-10R" secondAttribute="centerY" id="Ilo-F2-Uvd"/>
-                                            <constraint firstItem="bCC-XY-10R" firstAttribute="leading" secondItem="YAp-hq-lfZ" secondAttribute="leading" constant="20" id="bvj-I0-Z8c"/>
-                                            <constraint firstItem="bCC-XY-10R" firstAttribute="top" secondItem="YAp-hq-lfZ" secondAttribute="top" constant="10" id="oR0-Ow-yzv"/>
-                                            <constraint firstAttribute="bottom" secondItem="bCC-XY-10R" secondAttribute="bottom" constant="10" id="ycy-Wv-YA3"/>
-                                            <constraint firstItem="522-YG-XXJ" firstAttribute="leading" secondItem="bCC-XY-10R" secondAttribute="trailing" constant="20" id="zi9-GI-Ut8"/>
+                                            <constraint firstAttribute="bottom" secondItem="cEf-CL-djJ" secondAttribute="bottom" id="6Yc-1y-Wfk"/>
+                                            <constraint firstAttribute="trailing" secondItem="cEf-CL-djJ" secondAttribute="trailing" constant="20" id="GHc-ZS-Tea"/>
+                                            <constraint firstItem="cEf-CL-djJ" firstAttribute="top" secondItem="YAp-hq-lfZ" secondAttribute="top" id="Xpk-EI-fIT"/>
+                                            <constraint firstItem="cEf-CL-djJ" firstAttribute="leading" secondItem="YAp-hq-lfZ" secondAttribute="leading" constant="20" id="lZ9-bT-ogv"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -64,7 +84,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="91O-Dj-sTO"/>
                     <connections>
+                        <outlet property="currentRadiusLabel" destination="bCC-XY-10R" id="WPU-FM-mEb"/>
                         <outlet property="mapView" destination="NAS-D6-enh" id="Vfa-ri-E2Y"/>
+                        <outlet property="maxSearchRadiusLabel" destination="aYQ-fC-T8a" id="ZCJ-Px-tgx"/>
+                        <outlet property="minSearchRadiusLabel" destination="yEw-VQ-F4f" id="lil-6S-rRC"/>
+                        <outlet property="radiusSlider" destination="522-YG-XXJ" id="hwL-ij-rrx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

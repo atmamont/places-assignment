@@ -11,21 +11,29 @@ import MapKit
 import Places
 
 class PlacesViewController: UIViewController {
-    @IBOutlet private weak var mapView: MKMapView! {
-        didSet {
-            mapView.showsUserLocation = true
-        }
+    private struct Constants {
+        static let minSearchRadius = 100
+        static let maxSearchRadius = 3000
     }
     
+    @IBOutlet private weak var radiusSlider: UISlider!
+    @IBOutlet private weak var mapView: MKMapView!
+    @IBOutlet private weak var currentRadiusLabel: UILabel!
+    @IBOutlet private weak var minSearchRadiusLabel: UILabel!
+    @IBOutlet private weak var maxSearchRadiusLabel: UILabel!
+
     private var lastKnownUserLocation: Location?
     private var radius: Int = 1000 {
         didSet {
+            let template = NSLocalizedString(
+                "places_screen_current_radius_label",
+                comment: "Places screen - `Current radius (in meters)` label")
+            currentRadiusLabel.text = String(format: template, radius)
+            
             focusAndScaleMap(on: lastKnownUserLocation)
-            fetchPlaces()
         }
     }
     
-    // TODO: Inject from outside
     var loader: PlacesLoader? = PlacesLoaderAssembly.foursquareLoader()
     lazy var locationController: LocationController = {
         let controller = CoreLocationController()
@@ -36,6 +44,14 @@ class PlacesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mapView.showsUserLocation = true
+        
+        minSearchRadiusLabel.text = "\(Constants.minSearchRadius)"
+        maxSearchRadiusLabel.text = "\(Constants.maxSearchRadius)"
+        
+        radiusSlider.minimumValue = Float(Constants.minSearchRadius)
+        radiusSlider.maximumValue = Float(Constants.maxSearchRadius)
+
         locationController.requestAuthorization()
         locationController.startUpdating()
     }
@@ -43,19 +59,14 @@ class PlacesViewController: UIViewController {
     // MARK - Private
     
     private func fetchPlaces() {
-        loader?.load(location: lastKnownUserLocation,
-                     radius: radius)
-        { [weak self] result in
+        loader?.load(location: lastKnownUserLocation, radius: radius) { [weak self] result in
             guard let self else { return }
             
             switch result {
             case let .success(items):
                 self.renderAnnotations(items.toAnnotations())
             case let .failure(error):
-                AlertHelper.showAlert(
-                    title: R.networkErrorAlertTitle,
-                    message: error.localizedDescription,
-                    from: self)
+                self.showAlert(for: error)
             }
         }
     }
@@ -84,10 +95,20 @@ class PlacesViewController: UIViewController {
         mapView.setRegion(region, animated: true)
     }
     
+    private func showAlert(for error: Error) {
+        AlertHelper.showAlert(
+            title: R.networkErrorAlertTitle,
+            message: error.localizedDescription,
+            from: self)
+    }
+    
     // MARK: - Actions
     
-    @IBAction private func onSliderValueChange(_ sender: UISlider) {
+    @IBAction private func onSliderValueChange(_ sender: UISlider, event: UIEvent) {
         radius = Int(sender.value)
+        
+        guard let touchEvent = event.allTouches?.first, touchEvent.phase == .ended else { return }
+        fetchPlaces()
     }
 }
 
