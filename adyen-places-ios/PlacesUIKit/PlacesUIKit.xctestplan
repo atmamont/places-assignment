@@ -23,6 +23,13 @@
         "identifier" : "7525C4C02AB07012003D55F3",
         "name" : "PlacesTests"
       }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Places.xcodeproj",
+        "identifier" : "75DE90F82AB37AEC002762C7",
+        "name" : "PlacesUIKitTests"
+      }
     }
   ],
   "version" : 1
