@@ -7,8 +7,6 @@
 
 import Foundation
 
-public typealias Location = (latitude: Double, longitude: Double)
-
 public struct PlaceItem: Equatable {
     public let latitude: Double
     public let longitude: Double

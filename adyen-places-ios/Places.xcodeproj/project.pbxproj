@@ -32,6 +32,7 @@
 		7525C50B2AB1F59E003D55F3 /* LocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C50A2AB1F59E003D55F3 /* LocationController.swift */; };
 		7525C50D2AB1F989003D55F3 /* CoreLocationControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C50C2AB1F989003D55F3 /* CoreLocationControllerTests.swift */; };
 		75DE90E92AB213C3002762C7 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90E82AB213C3002762C7 /* CoreLocationController.swift */; };
+		75DE90EB2AB2EBCA002762C7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90EA2AB2EBCA002762C7 /* Location.swift */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -91,6 +92,7 @@
 		7525C50A2AB1F59E003D55F3 /* LocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationController.swift; sourceTree = "<group>"; };
 		7525C50C2AB1F989003D55F3 /* CoreLocationControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationControllerTests.swift; sourceTree = "<group>"; };
 		75DE90E82AB213C3002762C7 /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
+		75DE90EA2AB2EBCA002762C7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				7525C4E32AB07627003D55F3 /* PlacesLoader.swift */,
+				75DE90EA2AB2EBCA002762C7 /* Location.swift */,
 				7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */,
 				7525C50A2AB1F59E003D55F3 /* LocationController.swift */,
 			);
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7525C4E42AB07627003D55F3 /* PlacesLoader.swift in Sources */,
+				75DE90EB2AB2EBCA002762C7 /* Location.swift in Sources */,
 				7525C4D72AB070A0003D55F3 /* RemotePlaceItem.swift in Sources */,
 				7525C5022AB1E742003D55F3 /* FSQConfig.swift in Sources */,
 				7525C4D62AB07096003D55F3 /* PlacesAPIContext.swift in Sources */,
