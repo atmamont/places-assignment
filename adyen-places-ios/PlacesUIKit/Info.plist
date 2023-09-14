@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FSQ_TOKEN</key>
+	<string>$(FSQ_TOKEN)</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -22,8 +24,6 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Device location is needed to help finding nearby venues </string>
-	<key>FSQ_TOKEN</key>
-	<string>$(FSQ_TOKEN)</string>
+	<string>User location is used to find nearby venues </string>
 </dict>
 </plist>
