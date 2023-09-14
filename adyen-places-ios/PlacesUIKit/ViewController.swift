@@ -61,6 +61,10 @@ class ViewController: UIViewController {
                                         span: mapView.region.span)
         mapView.setRegion(region, animated: true)
     }
+    
+    @IBAction private func onSliderValueChange(_ sender: UISlider) {
+        radius = Int(sender.value)
+    }
 }
 
 private class Venue: NSObject, MKAnnotation {

@@ -20,15 +20,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="CoO-f5-XD0" userLabel="Root Stack View">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAS-D6-enh">
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NAS-D6-enh">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="752"/>
                                         <standardMapConfiguration key="preferredConfiguration"/>
                                     </mapView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAp-hq-lfZ" userLabel="Radius View">
                                         <rect key="frame" x="0.0" y="762" width="393" height="56"/>
                                         <subviews>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" translatesAutoresizingMaskIntoConstraints="NO" id="522-YG-XXJ" userLabel="Radius Slider">
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1000" minValue="100" maxValue="10000" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="522-YG-XXJ" userLabel="Radius Slider">
                                                 <rect key="frame" x="120.33333333333333" y="13" width="254.66666666666669" height="31"/>
+                                                <connections>
+                                                    <action selector="onSliderValueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="s10-sY-9k2"/>
+                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="749" text="Radius (m)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCC-XY-10R" userLabel="Radius Label">
                                                 <rect key="frame" x="20" y="10" width="82.333333333333329" height="36"/>
