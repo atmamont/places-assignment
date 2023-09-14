@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  Places
+
+  Created by Andrei on 14/09/2023.
+  
+*/
+
+"common_ok" = "OK";
+
+"generic_network_error_alert_title" = "Network error";

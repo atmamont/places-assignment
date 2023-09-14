@@ -34,6 +34,8 @@
 		75DE90E92AB213C3002762C7 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90E82AB213C3002762C7 /* CoreLocationController.swift */; };
 		75DE90EB2AB2EBCA002762C7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90EA2AB2EBCA002762C7 /* Location.swift */; };
 		75DE90EE2AB2FEAC002762C7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90ED2AB2FEAC002762C7 /* AlertHelper.swift */; };
+		75DE90F02AB32E97002762C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 75DE90EF2AB32E97002762C7 /* Localizable.strings */; };
+		75DE90F22AB32F27002762C7 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90F12AB32F27002762C7 /* R.swift */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -95,6 +97,8 @@
 		75DE90E82AB213C3002762C7 /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 		75DE90EA2AB2EBCA002762C7 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		75DE90ED2AB2FEAC002762C7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		75DE90EF2AB32E97002762C7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		75DE90F12AB32F27002762C7 /* R.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = R.swift; sourceTree = "<group>"; };
 		B13196B529DC817600981DC7 /* PlacesAPIContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesAPIContext.swift; sourceTree = "<group>"; };
 		B13196B729DC817600981DC7 /* RemotePlaceItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemotePlaceItem.swift; sourceTree = "<group>"; };
 		B13196B829DC817600981DC7 /* PlacesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
@@ -143,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				75DE90EC2AB2FE9E002762C7 /* Helpers */,
-				7525C4FC2AB1D9CC003D55F3 /* PlacesUIKit.xctestplan */,
 				7525C4FD2AB1DCBB003D55F3 /* Configuration */,
 				5AC5AD082A0278EF00C59D84 /* AppDelegate.swift */,
 				5AC5AD0A2A0278EF00C59D84 /* SceneDelegate.swift */,
@@ -152,6 +155,8 @@
 				5AC5AD112A0278F000C59D84 /* Assets.xcassets */,
 				5AC5AD132A0278F000C59D84 /* LaunchScreen.storyboard */,
 				5AC5AD162A0278F000C59D84 /* Info.plist */,
+				7525C4FC2AB1D9CC003D55F3 /* PlacesUIKit.xctestplan */,
+				75DE90EF2AB32E97002762C7 /* Localizable.strings */,
 			);
 			path = PlacesUIKit;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				75DE90ED2AB2FEAC002762C7 /* AlertHelper.swift */,
+				75DE90F12AB32F27002762C7 /* R.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -444,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AC5AD152A0278F000C59D84 /* LaunchScreen.storyboard in Resources */,
+				75DE90F02AB32E97002762C7 /* Localizable.strings in Resources */,
 				7525C5092AB1ED50003D55F3 /* DevSecrets.xcconfig in Resources */,
 				5AC5AD122A0278F000C59D84 /* Assets.xcassets in Resources */,
 				7525C5012AB1E6A3003D55F3 /* Dev.xcconfig in Resources */,
@@ -482,6 +489,7 @@
 				75DE90EE2AB2FEAC002762C7 /* AlertHelper.swift in Sources */,
 				5AC5AD0D2A0278EF00C59D84 /* ViewController.swift in Sources */,
 				5AC5AD092A0278EF00C59D84 /* AppDelegate.swift in Sources */,
+				75DE90F22AB32F27002762C7 /* R.swift in Sources */,
 				5AC5AD0B2A0278EF00C59D84 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

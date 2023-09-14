@@ -7,12 +7,6 @@
 
 import UIKit
 
-struct R {
-    static let commonOk = NSLocalizedString("common_ok", comment: "Common contextless OK used across the app")
-    
-    static let networkErrorAlertTitle = NSLocalizedString("generic_network_error_alert_title", comment: "Generic network error alert title")
-}
-
 class AlertHelper {
     
     static func showAlert(title: String?, message: String?, from viewController: UIViewController) {
