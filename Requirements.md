@@ -86,3 +86,5 @@ Examples:
 
 5. [UX] Map UX could be improved by introducing custom icons for every place type and custom views to render when user taps place pin. My first idea would be to add tappable phone number so anyone could easily tap it and make a reservation call.
 
+6. Get rid of storyboards and introduce a factory to instantiate concrete implementations of `LocationController` and `PlacesLoader`, inject dependencies on initialisation to `PlacesViewController`. Concrete types are leaking right now in closures that instantiate necessary remote loader and core location controller. The view controller is implementation-agnostic and can operate with any instance conforming to required interfaces. 
+For the sake of not spending too much time on assignment I decided to cut this corner.
