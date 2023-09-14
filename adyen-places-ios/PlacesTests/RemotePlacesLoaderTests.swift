@@ -58,8 +58,13 @@ final class RemotePlacesLoaderTests: XCTestCase {
         
         sut.load(radius: radius) { _ in }
         
-        XCTAssertEqual(client.requestedQueryParameters, [[URLQueryItem(name: "radius", value: String(radius))]])
+        XCTAssertEqual(
+            client.requestedQueryParameters,
+            [makeQueryItems([.radius(radius), .limit(limitPlaces)])]
+        )
     }
+    
+    private let limitPlaces = 50
 
     func test_load_setsLocationQueryParameterWhenLocationIsPassed() {
         let (sut, client) = makeSUT()
@@ -67,7 +72,10 @@ final class RemotePlacesLoaderTests: XCTestCase {
         
         sut.load(location: location) { _ in }
         
-        XCTAssertEqual(client.requestedQueryParameters, [[URLQueryItem(name: "ll", value: location.toString())]])
+        XCTAssertEqual(
+            client.requestedQueryParameters,
+            [makeQueryItems([.location(location), .limit(limitPlaces)])]
+        )
     }
 
     func test_load_doesNotSetQueryParameterWhenNonePassed() {
@@ -75,7 +83,7 @@ final class RemotePlacesLoaderTests: XCTestCase {
 
         sut.load { _ in }
         
-        XCTAssertEqual(client.requestedQueryParameters, [[]])
+        XCTAssertEqual(client.requestedQueryParameters, [makeQueryItems([.limit(limitPlaces)])])
     }
 
     func test_load_deliversPlacesOnSuccess() {
@@ -146,6 +154,12 @@ final class RemotePlacesLoaderTests: XCTestCase {
             distance: 100)
         let places = [place1]
         return places
+    }
+    
+    private func makeQueryItems(_ items: [SearchPlaceParameters]) -> [URLQueryItem] {
+        items.map {
+            URLQueryItem(name: $0.name, value: $0.value)
+        }
     }
 
     private class APIClientSpy: APIClientProtocol {

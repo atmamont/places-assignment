@@ -9,7 +9,7 @@ import Foundation
 import AdyenNetworking
 
 public class RemotePlacesLoader: PlacesLoader {
-    private let requestedPlacesAmount = 50
+    private let limitPlaces = 50
     
     private let apiClient: APIClientProtocol
     
@@ -50,7 +50,7 @@ public class RemotePlacesLoader: PlacesLoader {
         if let radius {
             p.append(.radius(radius))
         }
-        p.append(.limit(requestedPlacesAmount))
+        p.append(.limit(limitPlaces))
         return p.map { URLQueryItem(name: $0.name, value: $0.value) }
     }
 }
