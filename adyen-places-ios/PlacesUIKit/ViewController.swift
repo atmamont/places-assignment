@@ -34,7 +34,10 @@ class ViewController: UIViewController {
             case let .success(items):
                 self?.renderAnnotations(items.toAnnotations())
             case let .failure(error):
-                self?.label.text = error.localizedDescription
+                AlertHelper.showAlert(
+                    title: R.networkErrorAlertTitle,
+                    message: error.localizedDescription,
+                    from: self)
             }
         })
     }
