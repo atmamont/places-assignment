@@ -35,6 +35,8 @@ Then the updated map with new found places is dispalyed
 
 - We ask for "when in use" permission from iOS as we do not need to track user location always and we want to build trust
 
+- We refetch places from server
+
 # Use cases
 
 ## Obtain current location
@@ -75,12 +77,7 @@ Then the updated map with new found places is dispalyed
 5. User sees place name under every pin
 6. User can see place address by tapping a pin
 
-# Dependency diagram
-
-The architecture of the solution addresses following concerns:
-- SOLID principles
-- code readability
-- scalability
+# Dependencies diagram
 
 ![Diagram](PlacesDependencyChart.drawio.png)
 
@@ -103,3 +100,5 @@ Examples:
 
 6. Get rid of storyboards and introduce a factory to instantiate concrete implementations of `LocationController` and `PlacesLoader`, inject dependencies on initialisation to `PlacesViewController`. Concrete types are leaking right now in closures that instantiate necessary remote loader and core location controller. The view controller is implementation-agnostic and can operate with any instance conforming to required interfaces. 
 For the sake of not spending too much time on assignment I decided to cut this corner.
+
+7. Ask for more places from server as long as a user increases the search radius. It feels like asking 50+ places in one batch could make sense for radiuses > 5km

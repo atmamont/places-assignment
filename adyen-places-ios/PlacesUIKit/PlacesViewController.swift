@@ -10,7 +10,7 @@ import MapKit
 
 import Places
 
-class ViewController: UIViewController {
+class PlacesViewController: UIViewController {
     @IBOutlet private weak var mapView: MKMapView! {
         didSet {
             mapView.showsUserLocation = true
