@@ -9,6 +9,8 @@ import Foundation
 import AdyenNetworking
 
 public class RemotePlacesLoader: PlacesLoader {
+    private let requestedPlacesAmount = 50
+    
     private let apiClient: APIClientProtocol
     
     public init(apiClient: APIClientProtocol) {
@@ -48,6 +50,7 @@ public class RemotePlacesLoader: PlacesLoader {
         if let radius {
             p.append(.radius(radius))
         }
+        p.append(.limit(requestedPlacesAmount))
         return p.map { URLQueryItem(name: $0.name, value: $0.value) }
     }
 }
@@ -67,11 +70,13 @@ internal extension Array where Element == RemotePlaceItem {
 enum SearchPlaceParameters {
     case location(Location)
     case radius(Int)
+    case limit(Int)
     
     var name: String {
         switch self {
         case .location: return "ll"
         case .radius: return "radius"
+        case .limit: return "limit"
         }
     }
     
@@ -79,6 +84,7 @@ enum SearchPlaceParameters {
         switch self {
         case let .location(location): return location.toString()
         case let .radius(radius): return String(radius)
+        case let .limit(limit): return String(limit)
         }
     }
 }
