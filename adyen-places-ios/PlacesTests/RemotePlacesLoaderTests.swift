@@ -52,6 +52,32 @@ final class RemotePlacesLoaderTests: XCTestCase {
         })
     }
     
+    func test_load_setsRadiusQueryParameterWhenRadiusIsPassed() {
+        let (sut, client) = makeSUT()
+        let radius = 1000
+        
+        sut.load(radius: radius) { _ in }
+        
+        XCTAssertEqual(client.requestedQueryParameters, [[URLQueryItem(name: "radius", value: String(radius))]])
+    }
+
+    func test_load_setsLocationQueryParameterWhenLocationIsPassed() {
+        let (sut, client) = makeSUT()
+        let location = Location(latitude: 1.0, longitude: 2.5)
+        
+        sut.load(location: location) { _ in }
+        
+        XCTAssertEqual(client.requestedQueryParameters, [[URLQueryItem(name: "ll", value: location.toString())]])
+    }
+
+    func test_load_doesNotSetQueryParameterWhenNonePassed() {
+        let (sut, client) = makeSUT()
+
+        sut.load { _ in }
+        
+        XCTAssertEqual(client.requestedQueryParameters, [[]])
+    }
+
     func test_load_deliversPlacesOnSuccess() {
         let (sut, client) = makeSUT()
         let expectedPlaces = makePlaces()
@@ -127,10 +153,12 @@ final class RemotePlacesLoaderTests: XCTestCase {
         
         var requestedPaths = [String]()
         var completions: [CompletionHandler<T>] = []
+        var requestedQueryParameters: [[URLQueryItem]] = []
         
         func perform<R: Request>(_ request: R, completionHandler: @escaping CompletionHandler<R.ResponseType>) {
             requestedPaths.append(request.path)
             completions.append(completionHandler as! CompletionHandler<T>)
+            requestedQueryParameters.append(request.queryParameters)
         }
         
         func completeWithError(_ error: Error, at index: Int = 0) {

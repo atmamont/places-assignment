@@ -5,6 +5,7 @@
 //  Created by Andrei on 12/09/2023.
 //
 
+import Foundation
 import AdyenNetworking
 
 public class RemotePlacesLoader: PlacesLoader {
@@ -15,14 +16,17 @@ public class RemotePlacesLoader: PlacesLoader {
     }
     
     public func load(location: Location? = nil, radius: Int? = nil, completion: @escaping (LoadResult) -> Void) {
-        apiClient.perform(SearchPlacesRequest()) { [weak self] result in
+        let p = makeParameters(location: location, radius: radius)
+        let request = SearchPlacesRequest(queryParameters: p)
+        
+        apiClient.perform(request) { [weak self] result in
             guard let self else { return }
+
             switch result {
             case let .success(response):
                 completion(.success(self.map(response.results)))
             case let .failure(error):
-                let loaderError = self.handle(error)
-                completion(.failure(loaderError))
+                completion(.failure(self.handle(error)))
             }
         }
     }
@@ -35,6 +39,17 @@ public class RemotePlacesLoader: PlacesLoader {
     private func map(_ remotePlaces: [RemotePlaceItem]) -> [PlaceItem] {
         remotePlaces.toModels()
     }
+    
+    private func makeParameters(location: Location?, radius: Int?) -> [URLQueryItem] {
+        var p: [SearchPlaceParameters] = []
+        if let location {
+            p.append(.location(location))
+        }
+        if let radius {
+            p.append(.radius(radius))
+        }
+        return p.map { URLQueryItem(name: $0.name, value: $0.value) }
+    }
 }
 
 internal extension Array where Element == RemotePlaceItem {
@@ -45,6 +60,25 @@ internal extension Array where Element == RemotePlaceItem {
                 longitude: $0.longitude,
                 name: $0.name,
                 address: $0.location.formatted_address)
+        }
+    }
+}
+
+enum SearchPlaceParameters {
+    case location(Location)
+    case radius(Int)
+    
+    var name: String {
+        switch self {
+        case .location: return "ll"
+        case .radius: return "radius"
+        }
+    }
+    
+    var value: String {
+        switch self {
+        case let .location(location): return location.toString()
+        case let .radius(radius): return String(radius)
         }
     }
 }

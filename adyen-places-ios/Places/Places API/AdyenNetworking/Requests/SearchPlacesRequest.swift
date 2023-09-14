@@ -17,7 +17,7 @@ internal struct SearchPlacesRequest: Request {
     
     let path: String = "places/search"
     
-    let queryParameters: [URLQueryItem] = []
+    let queryParameters: [URLQueryItem]
     
     var counter: UInt = 0
     
