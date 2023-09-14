@@ -34,13 +34,19 @@ class PlacesViewController: UIViewController {
         }
     }
     
-    var loader: PlacesLoader? = PlacesLoaderAssembly.foursquareLoader()
-    lazy var locationController: LocationController = {
-        let controller = CoreLocationController()
-        controller.locationUpdateHandler = self.handleFirstLocationUpdate
-        return controller
-    }()
+    var loader: PlacesLoader?
+    var locationController: LocationController?
+    
+    convenience init(loader: PlacesLoader = PlacesLoaderAssembly.foursquareLoader(),
+                     locationController: LocationController = CoreLocationController()) {
+        self.init()
         
+        var locationController = locationController
+        locationController.locationUpdateHandler = self.handleFirstLocationUpdate
+        self.locationController = locationController
+        self.loader = loader
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -52,8 +58,8 @@ class PlacesViewController: UIViewController {
         radiusSlider.minimumValue = Float(Constants.minSearchRadius)
         radiusSlider.maximumValue = Float(Constants.maxSearchRadius)
 
-        locationController.requestAuthorization()
-        locationController.startUpdating()
+        locationController?.requestAuthorization()
+        locationController?.startUpdating()
     }
     
     // MARK - Private
@@ -72,7 +78,7 @@ class PlacesViewController: UIViewController {
     }
     
     private func handleFirstLocationUpdate(location: Location) {
-        locationController.stopUpdating()
+        locationController?.stopUpdating()
         lastKnownUserLocation = location
 
         fetchPlaces()
