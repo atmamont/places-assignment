@@ -9,7 +9,15 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false,
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:Places.xcodeproj",
+          "identifier" : "5AC5AD052A0278EF00C59D84",
+          "name" : "PlacesUIKit"
+        }
+      ]
+    },
     "targetForVariableExpansion" : {
       "containerPath" : "container:Places.xcodeproj",
       "identifier" : "5AC5AD052A0278EF00C59D84",
