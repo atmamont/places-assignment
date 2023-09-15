@@ -16,8 +16,6 @@ final class PlacesViewControllerTests: XCTestCase {
         
         sut.loadViewIfNeeded()
         
-        usleep(1)
-        
         XCTAssertEqual(loader.loadCallCount, 1)
     }
     
