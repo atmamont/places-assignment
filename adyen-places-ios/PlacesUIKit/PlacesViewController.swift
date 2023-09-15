@@ -13,59 +13,48 @@ import Places
 class PlacesViewController: UIViewController {
     private struct Constants {
         static let minSearchRadius = 100
-        static let maxSearchRadius = 3000
+        static let maxSearchRadius = 5000
+        static let defaultSearchRadius = 1000
     }
-    
-    @IBOutlet private weak var radiusSlider: UISlider!
-    @IBOutlet private weak var mapView: MKMapView!
-    @IBOutlet private weak var currentRadiusLabel: UILabel!
-    @IBOutlet private weak var minSearchRadiusLabel: UILabel!
-    @IBOutlet private weak var maxSearchRadiusLabel: UILabel!
 
     private var lastKnownUserLocation: Location?
-    private var radius: Int = 1000 {
+    var radius: Int = Constants.defaultSearchRadius {
         didSet {
-            let template = NSLocalizedString(
-                "places_screen_current_radius_label",
-                comment: "Places screen - `Current radius (in meters)` label")
-            currentRadiusLabel.text = String(format: template, radius)
-            
+            updateSearchRadiusLabel(radius)
             focusAndScaleMap(on: lastKnownUserLocation)
         }
     }
     
-    var loader: PlacesLoader?
-    var locationController: LocationController?
+    private let loader: PlacesLoader
+    private var locationController: LocationController
     
-    convenience init(loader: PlacesLoader = PlacesLoaderAssembly.foursquareLoader(),
-                     locationController: LocationController = CoreLocationController()) {
-        self.init()
+    init(loader: PlacesLoader,
+         locationController: LocationController) {
         
-        var locationController = locationController
-        locationController.locationUpdateHandler = self.handleFirstLocationUpdate
         self.locationController = locationController
         self.loader = loader
+        super.init(nibName: nil, bundle: nil)
+        
+        self.locationController.locationUpdateHandler = self.handleFirstLocationUpdate
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.showsUserLocation = true
+        setupUI()
         
-        minSearchRadiusLabel.text = "\(Constants.minSearchRadius)"
-        maxSearchRadiusLabel.text = "\(Constants.maxSearchRadius)"
-        
-        radiusSlider.minimumValue = Float(Constants.minSearchRadius)
-        radiusSlider.maximumValue = Float(Constants.maxSearchRadius)
-
-        locationController?.requestAuthorization()
-        locationController?.startUpdating()
+        locationController.requestAuthorization()
+        locationController.startUpdating()
     }
     
     // MARK - Private
     
     private func fetchPlaces() {
-        loader?.load(location: lastKnownUserLocation, radius: radius) { [weak self] result in
+        loader.load(location: lastKnownUserLocation, radius: radius) { [weak self] result in
             guard let self else { return }
             
             switch result {
@@ -78,10 +67,72 @@ class PlacesViewController: UIViewController {
     }
     
     private func handleFirstLocationUpdate(location: Location) {
-        locationController?.stopUpdating()
+        locationController.stopUpdating()
         lastKnownUserLocation = location
 
         fetchPlaces()
+    }
+    
+    // MARK: - UI
+    
+    lazy var mapView = MKMapView()
+    lazy var minSearchRadiusLabel = UILabel()
+    lazy var maxSearchRadiusLabel = UILabel()
+    lazy var currentRadiusLabel = UILabel()
+    lazy var radiusSlider = {
+        let view = UISlider()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.minimumValue = Float(Constants.minSearchRadius)
+        view.maximumValue = Float(Constants.maxSearchRadius)
+        view.value = Float(Constants.defaultSearchRadius)
+        return view
+    }()
+    
+    lazy var rootStackView = {
+        let view = UIStackView(arrangedSubviews: [mapView, settingsView])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.axis = .vertical
+        view.spacing = 10
+        return view
+    }()
+       
+    lazy var settingsView = {
+        let view = UIStackView(arrangedSubviews: [currentRadiusLabel, radiusSliderStackView])
+        view.axis = .vertical
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.spacing = 10
+        view.isLayoutMarginsRelativeArrangement = true
+        view.layoutMargins = .init(top: 0, left: 20, bottom: 0, right: 20)
+        return view
+    }()
+    
+    lazy var radiusSliderStackView = {
+        let view = UIStackView(arrangedSubviews: [minSearchRadiusLabel, radiusSlider, maxSearchRadiusLabel])
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.spacing = 20
+        return view
+    }()
+
+    private func setupUI() {
+        view.backgroundColor = .systemBackground
+        
+        view.addFillingSubview(rootStackView)
+
+        mapView.showsUserLocation = true
+        
+        minSearchRadiusLabel.text = "\(Constants.minSearchRadius)"
+        maxSearchRadiusLabel.text = "\(Constants.maxSearchRadius)"
+
+        radiusSlider.addTarget(self, action: #selector(onSliderValueChange(_:event:)), for: .valueChanged)
+        
+        updateSearchRadiusLabel(radius)
+    }
+
+    private func updateSearchRadiusLabel(_ radius: Int) {
+        let template = NSLocalizedString(
+            "places_screen_current_radius_label",
+            comment: "Places screen - `Current radius (in meters)` label")
+        currentRadiusLabel.text = String(format: template, radius)
     }
 
     // MARK: - Map
