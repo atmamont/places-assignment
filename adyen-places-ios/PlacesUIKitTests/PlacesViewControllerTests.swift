@@ -12,36 +12,43 @@ import Places
 final class PlacesViewControllerTests: XCTestCase {
     
     func test_load_doesNotTriggerFetch() {
-        let loader = RemotePlacesLoaderSpy()
-        let locationController = LocationControllerSpy()
-        let sut = PlacesViewController(loader: loader,
-                                       locationController: locationController)
+        let (sut, _, loader) = makeSUT()
         
-        sut.loadView()
+        sut.loadViewIfNeeded()
+        
+        usleep(1)
         
         XCTAssertEqual(loader.loadCallCount, 0)
     }
     
     func test_init_doesNotTriggerLocationRequest() {
-        let loader = RemotePlacesLoaderSpy()
-        let locationController = LocationControllerSpy()
-        let sut = PlacesViewController(loader: loader,
-                                       locationController: locationController)
+        let (_, locationController, _) = makeSUT()
         
         XCTAssertEqual(locationController.requestAuthorizationCallCount, 0)
     }
 
     func test_load_triggersLocationRequest() {
-        let loader = RemotePlacesLoaderSpy()
-        let locationController = LocationControllerSpy()
-        let sut = PlacesViewController(loader: loader,
-                                       locationController: locationController)
+        let (sut, locationController, _) = makeSUT()
 
         sut.loadViewIfNeeded()
         
         XCTAssertEqual(locationController.requestAuthorizationCallCount, 1)
     }
 
+    // MARK: - Helpers
+    
+    private func makeSUT(file: StaticString = #file, line: UInt = #line) -> (PlacesViewController, LocationControllerSpy, RemotePlacesLoaderSpy) {
+        let loader = RemotePlacesLoaderSpy()
+        let locationController = LocationControllerSpy()
+        let sut = PlacesViewController(loader: loader,
+                                       locationController: locationController)
+        trackForMemoryLeaks(sut, file: file, line: line)
+        trackForMemoryLeaks(locationController, file: file, line: line)
+        trackForMemoryLeaks(loader, file: file, line: line)
+        
+        return (sut, locationController, loader)
+    }
+    
     private class RemotePlacesLoaderSpy: PlacesLoader {
         var loadCallCount = 0
         func load(location: Places.Location?, radius: Int?, completion: @escaping (LoadResult) -> Void) {
@@ -60,7 +67,7 @@ final class PlacesViewControllerTests: XCTestCase {
             requestAuthorizationCallCount += 1
         }
         
-        func startUpdating() {
+        func startUpdating(completion: @escaping (Location) -> Void) {
             startUpdatingCallCount += 1
         }
         

@@ -8,7 +8,7 @@
 import CoreLocation
 
 public final class CoreLocationController: NSObject, CLLocationManagerDelegate, LocationController {
-    public var locationUpdateHandler: ((Location) -> Void)?
+    private var locationUpdateHandler: ((Location) -> Void)?
     
     private let locationManager: CLLocationManager
     
@@ -21,14 +21,16 @@ public final class CoreLocationController: NSObject, CLLocationManagerDelegate, 
         locationManager.requestWhenInUseAuthorization()
     }
 
-    public func startUpdating() {
+    public func startUpdating(completion: @escaping ((Location) -> Void)) {
         locationManager.delegate = self
+        locationUpdateHandler = completion
         locationManager.startUpdatingLocation()
     }
 
     public func stopUpdating() {
         locationManager.stopUpdatingLocation()
         locationManager.delegate = nil
+        locationUpdateHandler = nil
     }
     
     // MARK: - CLLocationManagerDelegate

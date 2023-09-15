@@ -9,8 +9,6 @@ import CoreLocation
 
 public protocol LocationController {
     func requestAuthorization()
-    func startUpdating()
+    func startUpdating(completion: @escaping ((Location) -> Void))
     func stopUpdating()
-
-    var locationUpdateHandler: ((Location) -> Void)? { get set }
 }

@@ -37,6 +37,7 @@
 		75DE90F22AB32F27002762C7 /* R.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90F12AB32F27002762C7 /* R.swift */; };
 		75DE91022AB37B15002762C7 /* PlacesViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE90F32AB379AA002762C7 /* PlacesViewControllerTests.swift */; };
 		75DE91062AB4389D002762C7 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75DE91052AB4389D002762C7 /* UIView+Constraints.swift */; };
+		75DE91072AB440A2002762C7 /* XCTestCase+MemoryLeak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7525C4EA2AB09445003D55F3 /* XCTestCase+MemoryLeak.swift */; };
 		B15C5DC629D61A9300A816C4 /* PlacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC529D61A9300A816C4 /* PlacesUITests.swift */; };
 		B15C5DC829D61A9300A816C4 /* PlacesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15C5DC729D61A9300A816C4 /* PlacesUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
@@ -201,9 +202,9 @@
 		7525C4E02AB07517003D55F3 /* PlacesFeature */ = {
 			isa = PBXGroup;
 			children = (
+				7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */,
 				7525C4E32AB07627003D55F3 /* PlacesLoader.swift */,
 				75DE90EA2AB2EBCA002762C7 /* Location.swift */,
-				7525C4FA2AB1A86F003D55F3 /* PlacesLoaderAssembly.swift */,
 				7525C50A2AB1F59E003D55F3 /* LocationController.swift */,
 			);
 			path = PlacesFeature;
@@ -583,6 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75DE91072AB440A2002762C7 /* XCTestCase+MemoryLeak.swift in Sources */,
 				75DE91022AB37B15002762C7 /* PlacesViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

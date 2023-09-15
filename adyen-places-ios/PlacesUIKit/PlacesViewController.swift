@@ -34,8 +34,6 @@ class PlacesViewController: UIViewController {
         self.locationController = locationController
         self.loader = loader
         super.init(nibName: nil, bundle: nil)
-        
-        self.locationController.locationUpdateHandler = self.handleFirstLocationUpdate
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +46,9 @@ class PlacesViewController: UIViewController {
         setupUI()
         
         locationController.requestAuthorization()
-        locationController.startUpdating()
+        locationController.startUpdating { [weak self] location in
+            self?.handleFirstLocationUpdate(location: location)
+        }
     }
     
     // MARK - Private

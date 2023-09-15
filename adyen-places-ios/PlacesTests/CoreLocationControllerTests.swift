@@ -39,7 +39,7 @@ class CoreLocationManagerTests: XCTestCase {
     func test_startUpdating_callsLocationManagerStartUpdating() {
         let (sut, manager) = makeSUT()
         
-        sut.startUpdating()
+        sut.startUpdating { _ in }
 
         XCTAssertEqual(manager.startUpdatingLocationCallCount, 1)
     }
@@ -47,7 +47,7 @@ class CoreLocationManagerTests: XCTestCase {
     func test_startUpdating_setsDelegate() {
         let (sut, manager) = makeSUT()
         
-        sut.startUpdating()
+        sut.startUpdating { _ in }
 
         XCTAssertNotNil(manager.delegate, "Expected to set delegate on startUpdating call")
     }
@@ -73,11 +73,9 @@ class CoreLocationManagerTests: XCTestCase {
 
         let exp = expectation(description: "Waiting for coordinates")
         
-        let handler: ((Location) -> Void) = { location in
+        sut.startUpdating { _ in
             exp.fulfill()
         }
-        sut.locationUpdateHandler = handler
-        sut.startUpdating()
 
         wait(for: [exp], timeout: 1.0)
     }
@@ -86,11 +84,9 @@ class CoreLocationManagerTests: XCTestCase {
         var weakSut: LocationController? = CoreLocationController(locationManager: CLLocationManagerSpy())
         
         var capturedLocation: Location?
-        weakSut?.locationUpdateHandler = { location in
+        weakSut?.startUpdating { location in
             capturedLocation = location
         }
-
-        weakSut?.startUpdating()
         weakSut = nil
         
         XCTAssertNil(capturedLocation, "Should not deliver values after deallocation")
