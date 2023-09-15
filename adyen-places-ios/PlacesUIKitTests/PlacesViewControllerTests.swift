@@ -11,14 +11,14 @@ import Places
 
 final class PlacesViewControllerTests: XCTestCase {
     
-    func test_load_doesNotTriggerFetch() {
+    func test_load_triggersFetch() {
         let (sut, _, loader) = makeSUT()
         
         sut.loadViewIfNeeded()
         
         usleep(1)
         
-        XCTAssertEqual(loader.loadCallCount, 0)
+        XCTAssertEqual(loader.loadCallCount, 1)
     }
     
     func test_init_doesNotTriggerLocationRequest() {

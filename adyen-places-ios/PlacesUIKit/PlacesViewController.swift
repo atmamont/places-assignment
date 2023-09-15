@@ -49,6 +49,8 @@ class PlacesViewController: UIViewController {
         locationController.startUpdating { [weak self] location in
             self?.handleFirstLocationUpdate(location: location)
         }
+        
+        fetchPlaces()
     }
     
     // MARK - Private
@@ -139,7 +141,7 @@ class PlacesViewController: UIViewController {
     
     private func renderAnnotations(_ annotations: [MKAnnotation]) {
         mapView.addAnnotations(annotations)
-        let focusPoint = lastKnownUserLocation
+        let focusPoint = lastKnownUserLocation ?? annotations.last?.toLocation()
         focusAndScaleMap(on: focusPoint)
     }
     
