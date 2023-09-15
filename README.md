@@ -72,10 +72,10 @@ Then the updated map with new found places is dispalyed
 2. Places screen has two sections: 
     - a full-screen map (MapKit)
     - a control for adjusting search radius (UISlider)
-3. The app shows the map and the icons of places loaded
+3. The app shows the map and the icons of places loaded around user location (detected by Foursuare by IP address if no permissions were granted)
 4. The map is centered on current user location
 5. User sees place name under every pin
-6. User can see place address by tapping a pin
+6. User can see place address by tapping any pin
 
 # Dependencies diagram
 
@@ -88,17 +88,14 @@ Examples:
 - what apiClient delivers on 200 status code and invalid JSON, etc?
 - broken JSON
 
-2. Better network errors handling. `EmptyErrorResponse` error type for `SearchPlacesRequest` doesn't provide a lot of context and `AdyenNetworking` framework itself neither. The next step to improve would be defining minimum set of user-facing errors, checking what kind of errors we receive in real scenario and then adjusting the `handle(:)` method in `RemotePlacesLoader`. This would be a much better way to handle errors and hide their networking-related details behind the predefined text can control and localize.
+2. Better network errors handling. `EmptyErrorResponse` error type for `SearchPlacesRequest` doesn't provide a lot of context and `AdyenNetworking` framework itself neither. The next step to improve would be defining minimum set of user-facing errors, checking what kind of errors we receive in real scenario and then adjusting the `handle(:)` method in `RemotePlacesLoader`. This would be a much better way to handle errors and hide their networking-related details behind the predefined text that we can control and localize.
 
 3. [UX] The map screen user experience could be improved by introducing a circular overlay for the time user interacts with a slider. Map could be also zoomed in/out based on continuous updates from the radius slider.
 
-4. UI part could be decomposed further. The map could be extracted in a separate view controller so it can be reusable component in the future. I believe in the map-based app it could be useful to reduce time to build new features.
+4. UI part could be decomposed further. The map could be extracted in a separate view controller so it can be reusable component in the future. I followed a simple MVC architecture for this screen and every screen component could have it's own MVC.
 
 5. [UX] Map UX could be improved by introducing custom icons for every place type and custom views to render when user taps place pin. My first idea would be to add tappable phone number so anyone could easily tap it and make a reservation call.
 
-6. [UX] We could open the Apple Maps or Google Maps to help user navigate to selected place.
-
-6. Get rid of storyboards and introduce a factory to instantiate concrete implementations of `LocationController` and `PlacesLoader`, inject dependencies on initialisation to `PlacesViewController`. Concrete types are leaking right now in closures that instantiate necessary remote loader and core location controller. The view controller is implementation-agnostic and can operate with any instance conforming to required interfaces. 
-For the sake of not spending too much time on assignment I decided to cut this corner.
+6. [UX] We could open the Apple Maps or Google Maps to help users navigate to a selected place.
 
 7. Ask for more places from server as long as a user increases the search radius. It feels like asking 50+ places in one batch could make sense for radiuses > 5km
