@@ -99,3 +99,14 @@ Examples:
 6. [UX] We could open the Apple Maps or Google Maps to help users navigate to a selected place.
 
 7. Ask for more places from server as long as a user increases the search radius. It feels like asking 50+ places in one batch could make sense for radiuses > 5km
+
+## Final thoughts
+
+I had a lot of fun working on this assignment. I had never a chance to work on something that is location related so I couldn't just move on using a simple tableview to render results. I opted for some real visual mapping experience, see what challenges I face and how easy or hard would be to find solutions.
+I definitely faced a couple of them, specifically with the location permissions and the necessity of building the app flow around that.
+
+I used full TDD technique which doesn't happen often in day-to-day work when all of us have some deadlines that can compromise this approach, it definitely takes longer.
+
+I was able to immediately see the benefits.I discovered two memory leaks, one wich probably would be fixed without having tests as it was very simple and another that was much trickier - when I was assigning view controller method to a location controller update closure (this is not in the final assignment but can be found through a commit history). Apart from this, having logic covered helped me to make some desicions that I was less afraid of to make than usually, knowing that I would immediately see the consequences just by running tests.
+
+This took me a bit more than 5 hours, it feels like it was 6-7. However, i still see a lot of corners that I decided to cut.
