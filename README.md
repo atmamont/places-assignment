@@ -1,3 +1,8 @@
+# API key
+
+There is no API key provided with the code due to security considerations.
+To add API key, the `DevSecrets.xcconfig` file should be provided with the `FSQ_TOKEN` key/value and placed at the same folder as `Dev.xcconfig` (`PlacesUIKit/Configuration`)
+
 # Requirements
 
 [Assignment description](Assignment.md)
